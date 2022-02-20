@@ -1,0 +1,254 @@
+title: "&8-=( &2Champion Upgrades &8)=-"
+rows: 6
+sound: ITEM_ARMOR_EQUIP_DIAMOND
+
+options:
+  settings:
+    name: "&b[设置] 升级/外观"
+    material: DIAMOND_SWORD
+    flags: [ HIDE_ATTRIBUTES ]
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7改变王国圣贤的设置"
+      - "比如升级他的装备/武器"
+      - "更改圣贤的外观类型等."
+    posx: 3
+    posy: 2
+  health:
+    name: "&b圣贤血量"
+    material: MELON_SLICE
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7增加王国圣贤血量"
+      - "每升一级增加 &250 &7血量."
+      - "&7圣贤目前血量值为&8: &2%scaling%"
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 4
+    posy: 2
+  reinforcements:
+    name: "&b增援"
+    material: ZOMBIE_HEAD
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7每次升级都会产生额外的守护者"
+      - "每隔 &230 &7秒就会产生一个圣贤守护者."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 5
+    posy: 2
+  resistance:
+    name: "&b抵抗"
+    material: BRICK
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7每次升级提升 &2%scaling%% &7圣贤不会被攻击击倒。"
+      - "Champion won't be knocked back by an attack."
+      - "&e[可以理解为每次升级添加 % 闪避几率]"      
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"     
+    posx: 6
+    posy: 2
+  speed:
+    name: "&b速度"
+    material: POTION
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7当圣贤的健康状况低于 &220% &7圣贤将添加一定速度"
+      - "每次升级提升，圣贤的速度将会更快.&e[最多五级]"
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"    
+    posx: 7
+    posy: 2
+  focus:
+    name: "&b玩家焦点"
+    material: ENDER_EYE
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7被圣贤击中的玩家"
+      - "有 &2%scaling% &7秒的时间从所有“他们的有效药水效果”中移除."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 3
+    posy: 3
+  strength:
+    name: "&b力量强化"
+    material: ANVIL
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7力量药水添加至贤者"
+      - "每次升级提升圣贤将提升一级力量药水"
+      - "&e[最高添加至3级]."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"     
+    posx: 4
+    posy: 3
+  throw:
+    name: "&bThrow"
+    material: COOKED_PORKCHOP
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7每次攻击，都有机会把玩家撞到天空"
+      - "&7每次升级添加 &210% 的几率."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"     
+    posx: 5
+    posy: 3
+  death-duel:
+    name: "&b死亡决斗"
+    material: GOLDEN_SWORD
+    flags: [ HIDE_ATTRIBUTES ]
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7除入侵者所有的玩家都会受到对圣贤的处理"
+      - "&7对圣贤的伤害减少 &250% "
+      - "圣贤也会造成双倍伤害"
+      - "除入侵者之外的所有玩家."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 6
+    posy: 3
+  drag:
+    name: "&b牵引"
+    material: FISHING_ROD
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7如果入侵玩家距离贤者 &2%scaling% &7个区块"
+      - "玩家将被拽到贤者面前."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"     
+    posx: 7
+    posy: 3
+  damage-cap:
+    name: "&b伤害上限"
+    material: DIAMOND_CHESTPLATE
+    flags: [ HIDE_ATTRIBUTES ]
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7你的圣贤最多只能受到任何伤害造成的"
+      - "&2%scaling% &7点伤害."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"     
+    posx: 4
+    posy: 4
+  thor:
+    name: "&b雷神"
+    material: DIAMOND_AXE
+    flags: [ HIDE_ATTRIBUTES ]
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7每 &23 &7闪电击中入侵玩家和附近所有非友军"
+      - "&7玩家.并造成伤害,并将玩家击退"
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 3
+    posy: 4
+  plow:
+    name: "&b清除"
+    material: COBWEB
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7你的圣贤会尝试清理所有的"
+      - "岩浆 and 蜘蛛网."
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 6
+    posy: 4
+  fangs:
+    name: "&bFangs"
+    material: EVOKER_SPAWN_EGG
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&7为圣贤周围的地方玩家生成尖牙"
+      - ""
+      - "&2等级&8: &6%level%"
+      - "&2资源点&8: &6%cost%"
+      - "&a你的国家有 &e%kingdoms_fancy_resource_points% &a资源点"      
+    posx: 7
+    posy: 4
+
+  back:
+    name: "&2Back"
+    material: BARRIER
+    lore:
+      - "&6Go back to nexus menu."
+    posx: 5
+    posy: 6
+  purple-glass:
+    name: ""
+    material: PURPLE_STAINED_GLASS_PANE
+    slots: [ 0, 2, 6, 8, 18, 26, 27, 35, 45, 47, 51, 53 ]
+  black-glass:
+    name: ""
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [ 1, 7, 9, 17, 36, 44, 46, 52 ]
+  magenta-glass:
+    name: ""
+    material: MAGENTA_STAINED_GLASS_PANE
+    slots: [ 10, 16, 37, 43 ]

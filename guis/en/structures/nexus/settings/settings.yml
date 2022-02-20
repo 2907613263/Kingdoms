@@ -1,0 +1,89 @@
+title: "&8-=( &7Settings &8)=-"
+rows: 1
+sound: ITEM_BOOK_PAGE_TURN
+
+options:
+  pacifism:
+    name: "&6和平主义&8: %pacifism%"
+    material: END_CRYSTAL
+    lore:
+      - "&7当你处于和平主义模式时"
+      - "你的王国不能入侵其他国家"
+      - "并且不能被其他王国入侵."
+      - ""
+      - "如果你入侵一个王国,"
+      - "王国一周内不能回到和平主义模式."
+      - ""
+      - "&2Cooldown&8: &6%pacifism_cooldown%"
+    posx: 1
+    posy: 1
+  shields:
+    name: "&6保护&8: &2%kingdoms_shield_time_left%"
+    material: SHIELD
+    lore:
+      - "&7为你的王国购买盾牌"
+      - "以保护您的王国免收入侵"
+    posx: 2
+    posy: 1
+  invites:
+    name: "&6邀请&8: %invites%"
+    material: BOOK
+    lore:
+      - "&7关闭之后,任何人都可以加入这个王国,"
+      - "将无需 &2/k join %kingdoms_name%"
+    posx: 3
+    posy: 1
+  relations:
+    name: "&6外交关系"
+    material: WRITABLE_BOOK
+    lore:
+      - "&7更改与其他王国的关系属性"
+    posx: 4
+    posy: 1
+  tax:
+    name: "&6税务"
+    material: PAPER
+    lore:
+      - "&7为王国成员更改您的"
+      - "&7王国税."
+      - ""
+      - "&6税&8: &2$%kingdoms_fancy_tax%"
+      - "&6Equation&8: &2%tax_equation%"
+      - ""
+      - "&6Billing Tax&8: &2$%kingdoms_fancy_kingdom_tax%"
+    posx: 5
+    posy: 1
+  public-home:
+    name: "&6公共之家&8: &2%public_home%"
+    material: DARK_OAK_DOOR
+    lore:
+      - "&7您可以更改王国的家，以便其他玩家使用"
+      - "&7using &6/k home %kingdoms_name% &7command."
+    posx: 6
+    posy: 1
+  flag:
+    name: "&6旗帜"
+    material: BLACK_BANNER
+    lore:
+      - "&7为 Dynmap 设置您的王国标志 单击以查看您的标志URL."
+      - "&7这不会立即更新."
+    posx: 7
+    posy: 1
+  color:
+    name: "&6颜色&8: &c%r%&7, &2%g%&7, &9%b% &7(&d%hex%&7)"
+    material: BLACK_DYE
+    lore:
+      - "&7为Dynmap设置王国标记的颜色."
+      - "&7这不会立即更新."
+    posx: 8
+    posy: 1
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    sound: default
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回到核心菜单."
+    posx: 9
+    posy: 1

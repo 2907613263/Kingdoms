@@ -1,0 +1,149 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                              Protection Signs                               |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 使用标志保护您的容器。
+# https://github.com/CryptoMorin/KingdomsX/wiki/Protection-Signs
+
+
+# 完全禁用此系统。 需要重新启动才能工作。
+# 请注意，数据和放置的标志仍将保留，但在重新打开之前它们将不起作用。 如果您重新打开它，旧受保护块上的先前数据将继续工作，即使该块或其标志不再存在。
+enabled: true
+
+# 如果设置为 false，保护数据将保留，如果有人想要访问箱子，他们必须打破标志或箱子。
+# 这在误认领时很有用。
+protect-unclaimed: false
+
+# 保护胸部和标志免受这些环境行为的影响。
+protections:
+  # 这将保护块和标志，而不管防爆杂项升级如何。
+  explosion: true
+  piston: true
+
+  # 出于性能原因，此条目下列出的所有选项都被缓存。
+  #这意味着需要重新启动服务器才能使更改生效。
+  container-transfers:
+    # 如果禁用，项目转移将被完全忽略。 意味着他们被允许。
+    enabled: true
+
+    # 如果您的服务器有很多漏斗，您可能希望完全禁用此选项。 这将有很大帮助。
+    # 通过禁用此选项，即使转移物品的容器属于所有者，也不会接受任何物品转移。
+    # 此选项仅在“启用”为真时有效。
+    disallow-all: false
+
+    # 禁止可访问受保护容器的成员使用他们拥有且受保护的其他容器（例如漏斗）转移其物品。
+    # 如果设置为 true，则只有容器所有者可以执行此操作。
+    # 有关更多信息，请访问 wiki。
+    # 此选项仅在“disallow-all”为 false 且“enabled”为 true 时有效。
+    disallow-cross-origin-container-transfers: false
+
+# 当有人试图打破/接近胸部或标志时播放的声音。
+denied-sound: BLOCK_NOTE_BLOCK_BASS
+
+# 此功能仅对容器（箱子、熔炉等）有用，对任何其他方块均无效。
+passwords:
+  # 所有者可以设置的最大密码长度。
+  length:
+    min: 5
+    max: 20
+
+  # 玩家在进入冷却时间之前可以输入多少次密码错误？
+  # 设置为 0 以禁用。
+  max-attempts: 3
+
+  # 玩家在多长时间内被禁止再次输入密码？
+  # 此冷却时间不会在重新启动之间持续存在。
+  # 此选项需要应用重启。
+  max-attempts-cooldown: 30mins
+
+  # 用于从容器中删除密码的关键字。
+  # 这意味着这个词不能用作密码。
+  # 注意：您还必须更改语言文件中的消息。
+  remove-keyword: 'remove'
+
+  # 标志记住谁知道密码以便他们无需再次输入密码即可访问容器的时间量。
+  # 这个时间在玩家打开容器时重置。
+  # 需要重新启动才能工作。
+  cookies: 6hrs
+
+# 如果你手里拿着一个牌子，然后左键单击，你会自动保护胸部。
+quick-protect:
+  enabled: true
+
+  # 左键放置标志时应该偷偷摸摸吗？
+  sneak: true
+
+# 可以签名保护的块。
+# 请注意，并非所有块都可以得到适当的保护。 例如，像玫瑰这样的两部分植物不能得到适当的保护，并且会留下一个受幽灵保护的方块，无论如何保护这些方块是没有意义的。
+blocks:
+  - CHEST
+  - TRAPPED_CHEST
+  - FURNACE
+  - BLAST_FURNACE
+  - ENCHANTING_TABLE
+  - BARREL
+  - BEACON
+  - BREWING_STAND
+  - CHEST
+  - COMPOSTER
+  - GRINDSTONE
+  - LECTERN
+  - LOOM
+  - SMOKER
+  - STONECUTTER
+  - HOPPER
+  - DROPPER
+  - DISPENSER
+  - CONTAINS:SHULKER_BOX
+  - CONTAINS:DOOR
+
+# 可以保护胸部的标志。
+# 将此保留为空以允许所有类型的标志。
+signs: [ ]
+
+# 右键单击该标志时，将打开受保护的胸部 GUI。
+gui: true
+
+# 保护标志可以允许/禁止的玩家和王国的数量。
+limits:
+  players: 30
+  kingdoms: 10
+
+# 检查时签名代码是否应区分大小写？
+# 请注意，如果将此设置为 false，则还应在代码列表中使用小写字符。
+case-sensitive-codes: false
+
+# 默认保护类型的显示名称。
+displayname: 'Protected'
+
+codes:
+  - "[protected]"
+  - "[protect]"
+  - "[private]"
+  - "private"
+
+lines:
+  - "&0[&6Protected&0]"
+  - "&2%player%"
+
+# https://github.com/CryptoMorin/KingdomsX/wiki/Protection_Signs#everyone
+everyone-in-kingdom:
+  enabled: true
+  displayname: 'Everyone in Kingdom'
+  codes:
+    - "[everyone]"
+  lines:
+    - "&0[&9Everyone&0]"
+    - "&2%player%"
+
+# 每个人，甚至在你的王国之外。 盟友或敌人并不重要。
+everyone:
+  enabled: true
+  displayname: 'Everyone'
+  codes:
+    - "[everyone*]"
+  lines:
+    - "&0[&4Everyone&0]"
+    - "&2%player%"

@@ -1,0 +1,53 @@
+title: "%rank_color%%rank_symbol% %rank_name%"
+rows: 1
+sound: ITEM_BOOK_PAGE_TURN
+
+options:
+  name:
+    name: "&5昵称&8: &2%rank_name%"
+    material: DIAMOND
+    sound: default
+    lore:
+      - "&6这个等级的名称."
+      - "可以包含任何字符，但最多 20 个字符."
+      - "它还可以包含颜色代码."
+    posx: 1
+    posy: 1
+  material:
+    name: "&e材料&8: &2%rank_material%"
+    material: GOLD_INGOT
+    sound: default
+    lore:
+      - "&6用于在等级 GUI 中显示此等级的材料."
+      - "即使服务器在旧版本上运行，您也应该使用最新的材料名称。"
+    posx: 2
+    posy: 1
+  symbol:
+    name: "&d等级符号&8: &2%rank_symbol%"
+    material: IRON_INGOT
+    sound: default
+    lore:
+      - "&6这个等级的符号。"
+      - "它只能是5个字符."
+      - "还支持颜色."
+    posx: 3
+    posy: 1
+  color:
+    name: "%rank_color%颜色"
+    material: COAL
+    sound: default
+    lore:
+      - "&6此等级的聊天颜色."
+      - "只能是五个符号."
+    posx: 4
+    posy: 1
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    sound: default
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回上一个界面."
+    posx: 9
+    posy: 1

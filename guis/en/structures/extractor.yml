@@ -1,0 +1,27 @@
+title: "&2提取器"
+type: HOPPER
+sound: BLOCK_ANVIL_USE
+
+options:
+  break:
+    name: "&4打破"
+    material: REDSTONE_BLOCK
+    sound: ENTITY_ITEM_BREAK
+    lore:
+      - "&6打破结构."
+    slot: 0
+  collect:
+    name: "&2收集&8: &9%time% &7- &9%amount%"
+    material: GREEN_WOOL
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6收集所有生成的资源点."
+      - "最后收集者&8: &2%name%"
+    slot: 2
+  close:
+    name: "&2关闭"
+    material: BARRIER
+    sound: default
+    lore:
+      - "&6关闭界面."
+    slot: 4

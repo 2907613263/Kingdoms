@@ -1,0 +1,157 @@
+title: "&8-=( &7Relation Editor &8)=-"
+rows: 1
+sound: ITEM_BOOK_PAGE_TURN
+
+options:
+  fly:
+    enabled:
+      condition: "%enabled%"
+      name: "&2飞行&8: &2开启"
+      material: ELYTRA
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许王国在你的领土内飞行"
+    else:
+      name: "&2Fly&8: &cD关闭"
+      material: ELYTRA
+      lore:
+        - "&7允许王国在你的领土内飞行"
+    posx: 1
+    posy: 1
+  build:
+    enabled:
+      condition: "%enabled%"
+      name: "&2建造&8: &2开启"
+      material: DIAMOND_PICKAXE
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许在我国领土放置建筑物."
+        - "&c[谨慎开启]."        
+    else:
+      name: "&2建造&8: &c关闭"
+      material: DIAMOND_PICKAXE
+      lore:
+        - "&7允许在我国领土放置建筑物." 
+        - "&c[谨慎开启]."         
+    posx: 2
+    posy: 1
+  ceasefire:
+    enabled:
+      condition: "%enabled%"
+      name: "&2停火&8: &2开启"
+      material: DIAMOND_SWORD
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7禁用对友军开火."
+    else:
+      name: "&2停火&8: &c关闭"
+      material: DIAMOND_SWORD
+      lore:
+        - "&7禁用对友军开火."
+    posx: 3
+    posy: 1
+  interact:
+    enabled:
+      condition: "%enabled%"
+      name: "&2互动&8: &2开启"
+      material: CAULDRON
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许方块交互用于打开容器"
+    else:
+      name: "&2互动&8: &c关闭"
+      material: CAULDRON
+      lore:
+        - "&7允许方块交互用于打开容器"
+    posx: 4
+    posy: 1
+  use:
+    enabled:
+      condition: "%enabled%"
+      name: "&2开关&8: &2开启"
+      material: LEVER
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许使用块. "
+        - "例如门、水瓶和按钮."
+    else:
+      name: "&2开关&8: &c禁用"
+      material: LEVER
+      lore:
+        - "&7允许使用块."
+        - "例如门、水瓶和按钮."
+    posx: 5
+    posy: 1
+  turret-ceasefire:
+    enabled:
+      condition: "%enabled%"
+      name: "&2炮塔停火&8: &2开启"
+      material: SPECTRAL_ARROW
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7禁用炮塔的友军火力."
+    else:
+      name: "&2炮塔停火&8: &c禁用"
+      material: SPECTRAL_ARROW
+      lore:
+        - "&7禁用炮塔的友军火力."
+    posx: 6
+    posy: 1
+  manage-turrets:
+    enabled:
+      condition: "%enabled%"
+      name: "&2管理炮塔&8: &2开启"
+      material: ARROW
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许破坏防止和与炮塔交互"
+        - "&c[谨慎开启]."
+    else:
+      name: "&2管理炮塔&8: &c关闭"
+      material: ARROW
+      lore:
+        - "&7允许破坏防止和与炮塔交互"
+        - "&c[谨慎开启]."
+    posx: 7
+    posy: 1
+  manage-structures:
+    enabled:
+      condition: "%enabled%"
+      name: "&2核心结构&8: &2开启"
+      material: REDSTONE_LAMP
+      flags: [ HIDE_ENCHANTS ]
+      enchants:
+        DURABILITY: 1
+      lore:
+        - "&7允许破坏、放置和与结构交互."
+    else:
+      name: "&2核心结构&8: &c关闭"
+      material: REDSTONE_LAMP
+      lore:
+        - "&7允许破坏、放置和与结构交互."
+    posx: 8
+    posy: 1
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    sound: default
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回上一个界面"
+    posx: 9
+    posy: 1

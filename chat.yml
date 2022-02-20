@@ -1,0 +1,158 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                                     Chat                                    |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 可以以“{#name}”格式使用的颜色
+# 例如。 “你好{#Teal}玩家”
+# 它们支持“r、g、b”、“3 位十六进制”和“6 位十六进制”格式。
+# 这些颜色不区分大小写。
+colors:
+  LightSalmon: '255, 160, 122'
+  Maroon: '128, 0, 0'
+  Olive: '128, 128, 0'
+  Teal: '008080'
+  Fuchsia: 'F0F'
+  Navy: '000080'
+
+# 王国内置聊天系统。 也支持悬停消息。
+# 权限： Kingdoms.chat.colors
+# 通道部分仅用于占位符。
+channels:
+  global:
+    name: "Global"
+    short: 'G'
+    color: '&f'
+  kingdom:
+    name: "Kingdom"
+    short: 'K'
+    color: '&2'
+  truce:
+    name: "Truce"
+    short: 'T'
+    color: '&e'
+  ally:
+    name: "Ally"
+    short: 'A'
+    color: '&a'
+  nation:
+    name: "Nation"
+    short: 'N'
+    color: '&9'
+
+# 王国处理的聊天优先级。 并不是说更改它不会禁用聊天。 您需要使用其他选项。
+# 当您使用另一个管理聊天垃圾邮件和其他限制的插件时使用此选项。 在这些情况下，您可能希望增加优先级。
+# 此选项需要重新启动才能工作。
+# 在 Bukkit 逻辑中，较低优先级意味着在较高优先级之前执行。
+# 因此，例如，如果像 Essentials 或 LiteBans 之类的插件使用 NORMAL 优先级来格式化聊天或静音播放器，则您必须选择“HIGH”优先级，以便插件可以知道聊天已被这些插件取消。
+# 通常你不应该也不需要使用 MONITOR 优先级，但是如果一个插件出于任何原因（他们不应该）具有更高的优先级，你可以使用它。
+# 我们将在这里使用最高优先级以防万一。
+# LOWEST, LOW, NORMAL, HIGH, HIGHEST, MONITOR
+# 最低、最低、正常、最高、最高、监控
+priority: HIGHEST
+
+# 王国插件应该完全取消聊天事件吗？
+# 这对自定义一些插件（例如 DiscordSRV）很有用，但它也可以破坏其他插件，例如使播放器静音的插件。
+# 在这些情况下，您通常必须将优先级设置为 MONITOR（即使不推荐），它可能会起作用。
+# 如果启用了 parse-as-placeholder 选项，则不适用于全局通道。
+cancel: true
+
+# 当玩家离开时，将玩家的聊天频道重置为全局。
+reset-channel-on-leave: false
+
+# 只有特定范围内的玩家才能看到来自频道的消息。
+# 间谍会绕过这个限制。
+ranged-channels:
+  # 受此选项影响的通道。
+  # GLOBAL, NATION, KINGDOM, TRUCE, ALLY
+  # 全球、国家、王国、休战、盟友  
+  channels: [ ]
+
+  # 设置为 0 仅隐藏来自其他世界玩家的消息。
+  radius: 0
+
+  # 在消息开头添加后绕过此范围的前缀。
+  # 这需要默认情况下给出的 Kingdoms.chat.bypass.ranged。
+  # 将此设置为空文本以禁用。
+  bypass-prefix: '!'
+
+# 用声音标记用户喜欢在 Discord 中。
+# 玩家需要 Kingdoms.chat.tag 权限。
+tagging:
+  enabled: true
+
+  # 为被标记的用户播放的声音。
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+  # 为不同玩家显示标签的方式。
+  formats:
+    tagger: '&2&l%tag%'
+    tagged: '&6&l%tag%'
+    others: '&l%tag%'
+
+  actionbar:
+    message: "&6%name% &2tagged you"
+
+    # 全息图为玩家停留的时间量（以秒为单位）。
+    stay: 3
+
+  # 用于标记某人的前缀。
+  # 例如。 “你好@Hex_26，你好吗？”
+  prefix: '@'
+
+global-channel:
+  # 插件也应该格式化全局聊天吗？
+  format: true
+
+  # 需要启用上述选项才能使其正常工作。
+  # 将全局聊天格式解析为原始格式中替换的占位符。
+  # 这个占位符是 {KINGDOMS}，您可以在聊天插件中使用它。
+  # 如果您使用其他插件，复杂的消息将不起作用。
+  # 请注意，格式必须为真。
+  # 如果将格式解析为占位符，则必须从中删除 %message% ，否则会在控错误。
+  parse-as-placeholder: false
+
+  # 由于玩家和控制台之间没有关系，因此这些值用于替换不存在的关系占位符。制台中引发
+  relational-placeholders:
+    # %kingdoms_relation_color%
+    color: '&f'
+    # %kingdoms_relation_name%
+    name: ''
+
+# 发送私人消息的渠道也是如此。 设置为 ~ 以禁用。
+# 您可以使用频道 ID 或名称（不区分大小写）。
+# 您还可以使用“$console”，它使用来自 DiscordSRV 的控制台频道或使用来自 DiscordSRV 的主聊天频道的“$main”。
+# 更改此选项后，插件需要使用 /k reload 重新加载。
+# 用于王国、盟友、休战和国家频道。
+discordsrv-private-channel: '$console'
+
+# 这些格式也支持排名。 要更改特定等级的格式，只需将它们转换为配置部分，就像下面的全局格式一样。 键是等级名称，值是格式。
+# “默认”是指未找到 Vault 或没有权限插件时的默认聊天格式。
+# 如果您只想更改消息颜色，则应使用排名后缀。
+formats:
+  # 当玩家没有王国时用于全球频道。
+  global-no-kingdom: "COMPLEX:hover:{&8[&8]&8[&7暂无&8] &2%displayname%;&2Message %player%;|/msg %player% } &7➠ &r&7%message%"
+
+  # 当玩家在王国时用于全球频道。
+  # 使用复杂消息的全局示例。
+  # 全球的: "COMPLEX:&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8] 悬停:{%displayname%;&2Kingdom&8: &2%kingdoms_name%} &7≫ &r%message%"
+  # 唯一支持关系占位符的聊天格式是全局的。
+  global:
+    # "COMPLEX:&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&7|&8[&2%kingdoms_name%&8] %displayname% &7≫ &r{%displayname% & -1}%message%"
+    # 上面的格式采用消息的播放器显示名称的后缀颜色。
+    default: "&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &r&7%message%"
+    admin: "&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &6%message%"
+  kingdom: "&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &d%message%"
+  ally: "&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &2%message%"
+  truce: "&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &e%message%"
+  spy: "&8[&9%kingdoms_chat_channel_color%%kingdoms_chat_channel_short%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8]&8[&7%kingdoms_name%&8] &2%displayname% &7➠ &e%message%"
+
+# 当玩家在一个王国并且该王国属于一个国家时使用。
+nation-formats:
+  nation: "&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname% &7➠  &9%message%"
+  global: "&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname% &7➠  &r&7%message%"
+  kingdom: "&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname% &7➠  &d%message%"
+  ally: "&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname% &7➠  &2%message%"
+  truce: "&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname% &7➠  &e%message%"
+  spy: "&8[&9%kingdoms_chat_channel_color%%kingdoms_chat_channel_short%&8]&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&8 &7%kingdoms_nation%&8]&7|&8[%kingdoms_rank_color%%kingdoms_rank_symbol% &7%kingdoms_name%&8] &2%displayname%&7➠  &e%message%"

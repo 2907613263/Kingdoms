@@ -1,0 +1,190 @@
+title: "&8-=( &3Misc Upgrades &8)=-"
+rows: 3
+sound: BLOCK_ENCHANTMENT_TABLE_USE
+
+options:
+  glory:
+    name: "&3荣誉"
+    material: NETHER_STAR
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&2级别 1&8: &6在你的土地上杀死非玩家\n产生 x2 经验."
+      - "&2级别 2&8: &6在你的土地上杀死玩家\n产生 x4 经验."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 3
+    posy: 1
+  anti-trample:
+    name: "&a防踩踏"
+    material: WHEAT_SEEDS
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&2级别 1&8: &6你耕种的土地不能"
+      - "被玩家践踏."
+      - ''
+      - "&2级别 2&8: &6活塞放置在您的外部"
+      - "土地将不再有用."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 4
+    posy: 1
+  nexus-guards:
+    name: "&4核心卫士"
+    material: DIAMOND_AXE
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6当有人挖掘你的核心,"
+      - "一个带着冠军的小僵尸"
+      - "武器会滋生."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 5
+    posy: 1
+  guards:
+    name: "&e护卫队"
+    material: IRON_AXE
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6保护王国如果"
+      - "&6一个非盟友进入了这片土地."
+      - "&6守卫会随机出生"
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 6
+    posy: 1
+  insanity:
+    name: "&c疯狂"
+    material: REDSTONE
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6捍卫者和核心卫士"
+      - "在动力细胞土地上繁殖"
+      - "力量一 10秒."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 7
+    posy: 1
+
+  invasion-teleportation:
+    name: "&3入侵传送"
+    material: ENDER_PEARL
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&2减少你的传送延迟"
+      - "在每次升级后用 &e/k tp."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 3
+    posy: 2
+  anti-explosion:
+    name: "&5防爆"
+    material: GUNPOWDER
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&2Level 1&8: &7If a creeper explodes"
+      - "in your land, it will do no"
+      - "block damage or damage"
+      - "your members."
+      - ""
+      - "&2Level 2&8: &7TNT can no longer damage"
+      - "your land, but will cause damage"
+      - "to nearby non-allies and non-members."
+      - ""
+      - "&2Level 3&8: &7Protect your kingdom members,"
+      - "animals, and all the other trapped mobs"
+      - "from explosions in your land."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 4
+    posy: 2
+  max-claims:
+    name: "&3Max Claims"
+    material: MAP
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6Increase your maximum claims"
+      - "by &22 &6every upgrade."
+      - ""
+      - "&2Current Max Lands&8: &6%kingdoms_max_lands%"
+      - "&2Cost&8: &6%cost%"
+      - "&2Level&8: &6%level%"
+    posx: 5
+    posy: 2
+  max-members:
+    name: "&3最大人口"
+    material: PLAYER_HEAD
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6每次升级都会多增加 3个 人口."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 6
+    posy: 2
+  chest-size:
+    name: "&3核心仓库"
+    material: ENDER_CHEST
+    sounds:
+      max-level: BLOCK_NOTE_BLOCK_BASS
+      not-enough-resource-points: BLOCK_NOTE_BLOCK_BASS
+      upgraded: ENTITY_EXPERIENCE_ORB_PICKUP
+    lore:
+      - "&6增加你的最大王国核心仓库"
+      - "仓库容量大小."
+      - ""
+      - "&2资源点&8: &6%cost%"
+      - "&2等级&8: &6%level%"
+    posx: 7
+    posy: 2
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    sound: default
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回上一菜单."
+    posx: 5
+    posy: 3
+  cyan-glass:
+    name: ""
+    material: CYAN_STAINED_GLASS_PANE
+    slots: [1, 7, 9, 17, 19, 25]
+  light-blue-glass:
+    name: ""
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    slots: [0, 8, 18, 26]

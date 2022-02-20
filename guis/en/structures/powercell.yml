@@ -1,0 +1,18 @@
+title: "&c动力电池"
+type: HOPPER
+sound: BLOCK_REDSTONE_TORCH_BURNOUT
+
+options:
+  break:
+    name: "&4打破"
+    material: REDSTONE_BLOCK
+    lore:
+      - "&6打破结构."
+    slot: 0
+  close:
+    name: "&2关闭"
+    material: BARRIER
+    sound: default
+    lore:
+      - "&6关闭界面."
+    slot: 4

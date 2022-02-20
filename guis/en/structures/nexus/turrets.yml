@@ -1,0 +1,114 @@
+title: "&8-=( &9炮塔 &8)=-"
+rows: 4
+sound: ITEM_FIRECHARGE_USE
+
+options:
+  arrow:
+    name: "&2箭塔"
+    material: ARROW
+    sound: ENTITY_ARROW_SHOOT
+    lore:
+      - "&6一个简单的炮塔，发射平原"
+      - "以中等速度向敌人射箭."
+    posx: 2
+    posy: 2
+  flame:
+    name: "&3火焰塔"
+    material: SPECTRAL_ARROW
+    sound: ITEM_FLINTANDSTEEL_USE
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6向着火的目标"
+      - "快速射击炮塔."
+    posx: 3
+    posy: 2
+  healing:
+    name: "&d治疗塔"
+    material: TIPPED_ARROW
+    sound: ENTITY_ZOMBIE_VILLAGER_CURE
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6治疗附近的成员和盟友."
+    posx: 4
+    posy: 2
+  psionic:
+    name: "&a灵塔 &7[&b修复中&7] &c请勿购买~"
+    material: TRIPWIRE_HOOK
+    sound: ENTITY_PLAYER_HURT_ON_FIRE
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6影响附近的敌人."
+      - "级别越高，效果越多."
+      - "但从不造成致命伤害."
+    posx: 5
+    posy: 2
+  hellfire:
+    name: "&c地狱火炮塔"
+    material: FIRE_CHARGE
+    sound: ITEM_FIRECHARGE_USE
+    lore:
+      - "&6快速开火的强大炮塔"
+      - "具有很高的伤害."
+    posx: 6
+    posy: 2
+  soldier:
+    name: "&5士兵炮塔"
+    sound: ENTITY_ZOMBIE_VILLAGER_CONVERTED
+    material: ZOMBIE_HEAD
+    lore:
+      - "&6生出守卫来杀死"
+      - "目标玩家."
+    posx: 7
+    posy: 2
+  heatbeam:
+    name: "&3热光束"
+    sound: ENTITY_GUARDIAN_ATTACK
+    material: MAGMA_CREAM
+    lore:
+      - "&6火焰光束 单一攻击 敌方"
+      - "超高伤害."
+    posx: 8
+    posy: 2
+  inferno:
+    name: "&4守卫者光束"
+    material: END_CRYSTAL
+    sound: ENTITY_ELDER_GUARDIAN_CURSE
+    lore:
+      - "&6类似于加热光束."
+    posx: 5
+    posy: 3
+  explosive-mine:
+    name: "&7地雷 &7[&b修复中&7] &c请勿购买~"
+    material: HEAVY_WEIGHTED_PRESSURE_PLATE
+    sound: BLOCK_STONE_PRESSURE_PLATE_CLICK_ON
+    lore:
+      - "&6一个会"
+      - "一步到位就爆炸."
+    posx: 6
+    posy: 3
+  chemical-mine:
+    name: "&8化学矿山 &7[&b修复中&7] &c请勿购买~"
+    material: LIGHT_WEIGHTED_PRESSURE_PLATE
+    sound: BLOCK_METAL_PRESSURE_PLATE_CLICK_ON
+    lore:
+      - "&6一个会给予"
+      - "当你被踩上的时候，你会脱颖而出."
+    posx: 4
+    posy: 3
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回上一菜单."
+    posx: 5
+    posy: 4
+  Cyan-Glass:
+    name: ""
+    material: CYAN_STAINED_GLASS_PANE
+    slots: [1, 7, 9, 17, 18, 26, 28, 34]
+  Light-Blue-Glass:
+    name: ""
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    slots: [0, 8, 27, 35]

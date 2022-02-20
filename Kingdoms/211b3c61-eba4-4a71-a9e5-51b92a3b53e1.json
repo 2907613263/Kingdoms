@@ -1,0 +1,176 @@
+{
+  "name": "新年快乐",
+  "home": "world, 140.0, 64.0, 399.7, 76.7, 8.0",
+  "nexus": "world, 134, 62, 394",
+  "resourcePoints": 180,
+  "bank": 0.0,
+  "publicHome": false,
+  "permanent": false,
+  "requiresInvite": true,
+  "since": 1643624111373,
+  "shieldSince": 1643624111374,
+  "shieldTime": -35971200000,
+  "ranks": {
+    "knight": {
+      "name": "Knight",
+      "color": "&e",
+      "symbol": "♜",
+      "priority": 2,
+      "maxClaims": 10,
+      "material": "GOLD_BLOCK",
+      "permissions": [
+        "USE",
+        "HOME",
+        "NEXUS",
+        "INVADE",
+        "WITHDRAW",
+        "FLY",
+        "TURRETS",
+        "CLAIM",
+        "NEXUS_CHEST",
+        "INVITE",
+        "NEXUS_BUILD",
+        "UNCLAIM",
+        "BUILD",
+        "INTERACT"
+      ]
+    },
+    "member": {
+      "name": "Member",
+      "color": "&2",
+      "symbol": "♟",
+      "priority": 3,
+      "maxClaims": 0,
+      "material": "IRON_BLOCK",
+      "permissions": [
+        "USE",
+        "HOME",
+        "NEXUS",
+        "INVADE",
+        "BUILD",
+        "INTERACT"
+      ]
+    },
+    "general": {
+      "name": "General",
+      "color": "&6",
+      "symbol": "❇",
+      "priority": 1,
+      "maxClaims": -1,
+      "material": "DIAMOND_BLOCK",
+      "permissions": [
+        "UPGRADE",
+        "INVADE",
+        "WITHDRAW",
+        "STRUCTURES",
+        "ENEMY",
+        "KICK",
+        "TURRETS",
+        "CLAIM",
+        "NATION",
+        "TRUCE",
+        "NEXUS_CHEST",
+        "OUTPOST",
+        "INVITE",
+        "UNCLAIM",
+        "BROADCAST",
+        "USE",
+        "ALLIANCE",
+        "LORE",
+        "HOME",
+        "NEXUS",
+        "FLY",
+        "SET_HOME",
+        "NEXUS_BUILD",
+        "MANAGE_RANKS",
+        "BUILD",
+        "INTERACT"
+      ]
+    },
+    "king": {
+      "name": "SunCe",
+      "color": "&c",
+      "symbol": "♚",
+      "priority": 0,
+      "maxClaims": -1,
+      "material": "EMERALD_BLOCK",
+      "permissions": []
+    }
+  },
+  "attributes": {
+    "NATION": [
+      "BUILD",
+      "CEASEFIRE",
+      "INTERACT",
+      "TURRET_CEASEFIRE",
+      "MANAGE_TURRETS",
+      "MANAGE_STRUCTURES"
+    ],
+    "NEUTRAL": [
+      "INVADE"
+    ],
+    "TRUCE": [
+      "CEASEFIRE",
+      "FLY",
+      "TURRET_CEASEFIRE"
+    ],
+    "ALLY": [
+      "CEASEFIRE",
+      "INTERACT",
+      "FLY",
+      "TURRET_CEASEFIRE",
+      "MANAGE_TURRETS",
+      "MANAGE_STRUCTURES"
+    ],
+    "ENEMY": [
+      "FLY",
+      "INVADE"
+    ]
+  },
+  "relationshipRequests": {},
+  "relations": {},
+  "book": {},
+  "metadata": {},
+  "king": "c25bbd1a-fed0-3d89-a881-204a72474382",
+  "maxLandsModifier": 0,
+  "pacifist": false,
+  "championType": "zombie",
+  "lastInvasion": 1643628222551,
+  "members": [
+    "c25bbd1a-fed0-3d89-a881-204a72474382"
+  ],
+  "lands": [
+    "world, 8, 25",
+    "world, 8, 24",
+    "world, 10, 23",
+    "world, 9, 24"
+  ],
+  "upgrades": {
+    "misc": {
+      "GUARDS": 1
+    },
+    "powerups": {
+      "DAMAGE_BOOST": 30,
+      "DAMAGE_REDUCTION": 51,
+      "REGENERATION_BOOST": 23,
+      "ARROW_BOOST": 7
+    },
+    "champion": {
+      "EQUIPMENT": 5,
+      "PLOW": 1,
+      "FANGS": 10,
+      "DRAG": 3,
+      "DEATH_DUEL": 1,
+      "RESISTANCE": 10,
+      "SPEED": 5,
+      "REINFORCEMENTS": 3,
+      "THROW": 5,
+      "STRENGTH": 3,
+      "DAMAGE_CAP": 5,
+      "THOR": 5,
+      "FOCUS": 3,
+      "HEALTH": 40
+    }
+  },
+  "nexusChest": {}
+}

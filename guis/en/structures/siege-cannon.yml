@@ -1,0 +1,32 @@
+title: "&3攻城炮"
+type: HOPPER
+sound: BLOCK_ANVIL_USE
+interactable: [ 2 ] # The ammo slot
+
+options:
+  sit:
+    name: "&2Sit"
+    lore:
+      - "&7坐在大炮上开始射击."
+    material: BRICK_STAIRS
+    slot: 0
+  ammo:
+    name: "&4-------->"
+    material: RED_STAINED_GLASS_PANE
+    lore:
+      - "&2在这个槽里放一个铁块来装载大炮."
+    slot: 1
+  break:
+    name: "&4打破"
+    material: REDSTONE_BLOCK
+    sound: ENTITY_ITEM_BREAK
+    lore:
+      - "&6打破结构."
+    slot: 3
+  close:
+    name: "&2Close关闭"
+    material: BARRIER
+    sound: default
+    lore:
+      - "&6关闭界面."
+    slot: 4

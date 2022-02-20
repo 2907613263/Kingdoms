@@ -1,0 +1,177 @@
+title: "&2&l%kingdoms_name%'s &6&l王国核心"
+rows: 6
+sound: BLOCK_BEACON_ACTIVATE, 0.3
+
+options:
+  settings:
+    name: "&7王国设置"
+    material: NETHER_STAR
+    lore:
+      - "&6改变你的王国设置."
+    posx: 5
+    posy: 2
+  members:
+    name: "&2成员"
+    material: PLAYER_HEAD
+    lore:
+      - "&6管理你的王国成员."
+      - "&6升职或降职."
+    posx: 5
+    posy: 3
+  masswar:
+    running:
+      condition: '%kingdoms_masswar%'
+      name: "&4Masswar"
+      material: CLOCK
+      lore:
+        - "&6During masswar invasion is free."
+        - "Masswar is currently &2running."
+    else:
+      name: "&4Masswar"
+      material: RED_WOOL
+      lore:
+        - "&6During masswar invasion is free."
+        - "Masswar is currently &cnot running."
+    posx: 6
+    posy: 3
+  nexus-chest:
+    name: "&e王国仓库"
+    material: CHEST
+    lore:
+      - "&6把东西放到你的箱子里"
+      - "&6供大家使用."
+    posx: 7
+    posy: 3
+  turrets:
+    name: "&9炮塔"
+    material: SPECTRAL_ARROW
+    lore:
+      - "&6你可以在你的土地"
+      - "上用资源点购买炮塔"
+      - "它可以帮你抵御外来"
+      - "怪物和入侵者."
+    posx: 3
+    posy: 3
+  structures:
+    name: "&5建筑物"
+    material: REDSTONE_LAMP
+    lore:
+      - "&6建筑有很多不同的用处."
+      - "一块土地只能购买一个建筑."
+      - "值得注意的是Nexus它本身是一个结构"
+      - "你可以用资源点去购买建筑."
+    posx: 4
+    posy: 3
+  misc-upgrades:
+    name: "&b杂项 升级"
+    material: ENCHANTING_TABLE
+    lore:
+      - "&6额外的各种升级"
+      - "从不同方面来改变你的王国."
+    posx: 2
+    posy: 3
+  logs:
+    name: "&alogs"
+    material: KNOWLEDGE_BOOK
+    sound: BLOCK_NOTE_BLOCK_BASS
+    lore:
+      - "&c&l暂未开放..."
+      - "&6查看王国日志"
+      - "包括入侵,索赔, 未索赔,以及其他成员活动."
+    posx: 8
+    posy: 3
+  resource-points:
+    name: "&e资源点转换器"
+    material: HAY_BLOCK
+    lore:
+      - "&6将你的物品转换为 &a资源点"
+      - "你的国家有 &e%kingdoms_fancy_resource_points% 资源点"
+    posx: 4
+    posy: 5
+  damage-reduction:
+    name: "&3伤害减免"
+    material: DIAMOND_CHESTPLATE
+    flags: [ HIDE_ATTRIBUTES ]
+    sound:
+      '%kingdoms_resource_points% >= %cost%': BLOCK_ANVIL_USE
+      '%kingdoms_resource_points% < %cost% || %level% >= %max-level%': BLOCK_NOTE_BLOCK_BASS
+    lore:
+      - "&6每升一级增加 &e1% &6的伤害减免"
+      - ""
+      - "&6等级&8: &2%level%"
+      - "&6资源点&8: &2%cost%"
+    posx: 7
+    posy: 4
+  damage-boost:
+    name: "&3伤害加成"
+    material: DIAMOND_SWORD
+    sound:
+      '%kingdoms_resource_points% >= %cost%': BLOCK_ANVIL_USE
+      '%kingdoms_resource_points% < %cost% || %level% >= %max-level%': BLOCK_NOTE_BLOCK_BASS
+    flags: [ HIDE_ATTRIBUTES ]
+    lore:
+      - "&6每次升级可增加 &e1% &6的伤害加成"
+      - ""
+      - "&6等级&8: &2%level%"
+      - "&6资源点&8: &2%cost%"
+    posx: 3
+    posy: 4
+  arrow-boost:
+    name: "&7Arrow Boost"
+    material: BOW
+    sound:
+      '%kingdoms_resource_points% >= %cost%': BLOCK_ANVIL_USE
+      '%kingdoms_resource_points% < %cost% || %level% >= %max-level%': BLOCK_NOTE_BLOCK_BASS
+    lore:
+      - "&6每次升级 弓 可增加 &e1% &6的伤害加成"
+      - ""
+      - "&6等级&8: &2%level%"
+      - "&6资源点&8: &2%cost%"
+    posx: 4
+    posy: 4
+  regeneration-boost:
+    name: "&d生命恢复"
+    material: GOLDEN_APPLE
+    sound:
+      '%kingdoms_resource_points% >= %cost%': BLOCK_ANVIL_USE
+      '%kingdoms_resource_points% < %cost% || %level% >= %max-level%': BLOCK_NOTE_BLOCK_BASS
+    lore:
+      - "&6每次级在自己的国土范围提升 &e1 &6生命恢复能力%"
+      - ""
+      - "&6等级&8: &2%level%"
+      - "&6资源点&8: &2%cost%"
+    posx: 6
+    posy: 4
+  ranks:
+    name: "&5权限 & 职位"
+    material: BOOKSHELF
+    lore:
+      - "&6修改你王国的职位等级以及权限"
+    posx: 6
+    posy: 5
+  champion-upgrades:
+    name: "&2圣贤升级"
+    material: ZOMBIE_HEAD
+    lore:
+      - "&6升级本王国圣贤，抵挡敌国入侵"
+    posx: 5
+    posy: 5
+  mail-box:
+    name: "&eMailBox"
+    material: PLAYER_HEAD
+    sound: BLOCK_NOTE_BLOCK_BASS
+    # https://minecraft-heads.com/custom-heads/decoration/18059-letter-box-gray
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjk2YWYzNmVhYWVkOGE3ZGJkMjcyN2ZkNGNkN2FmYmM2YzBhZmI4Yzc2MDYyOTRjOWNiNDAxMTQxYWFjMzc5In19fQ=="
+    lore:
+      - "&c&l暂未开放..."
+    posx: 5
+    posy: 4
+
+  red-glass:
+    name: "&b别看啦啥也没有~"
+    material: RED_STAINED_GLASS_PANE
+    slots: [ 1, 4, 7, 9, 10, 16, 17, 36, 37, 43, 44, 46, 49, 52 ]
+  black-glass:
+    name: "&b别看啦啥也没有~"
+    material: BLACK_STAINED_GLASS_PANE
+    slots: [ 0, 2, 3, 5, 6, 8, 18, 26, 27, 35, 45, 47, 48, 50, 51, 53 ]

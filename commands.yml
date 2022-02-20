@@ -1,0 +1,446 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                                  Commands                                   |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 基本命令的选项。
+command:
+  # 这两个选项需要重新启动服务器才能应用。
+  name: kingdoms
+  aliases: [ kingdom, xkingdoms, kingdomsx, k ]
+
+  # 声音不需要重新启动，也不需要重新加载插件即可应用。
+  sounds:
+    unknown-command: BLOCK_NOTE_BLOCK_BASS
+    insufficient-permission: BLOCK_NOTE_BLOCK_BASS
+
+# 特性
+# name：自动完成时显示的主要命令名称。
+# aliases：此命令的别名列表。
+# disabled：是否应该完全禁用此命令。 禁用命令组将禁用其所有子命令。
+# cooldown：无论结果成功与否，命令的冷却时间。 请参阅 wiki 以查看时间值格式。
+#           有时，根据其他配置中的某些情况，某些命令更适合某些命令的冷却时间。
+#           请注意，这些冷却时间不会在服务器重新启动之间持续存在。
+# disabled-world's：禁用此命令的世界名称列表。
+
+# 如果未定义这些属性中的任何一个，则将使用默认值：
+# name：用于标识此命令的默认硬编码名称，与命令的配置部分条目名称相同。
+# aliases: []
+# disabled: false
+# cooldown: 0
+# disabled-worlds: []
+
+# 不要在命令名称或别名中使用空格或颜色。
+# 这些选项只能通过服务器重启或“/k reload commands”命令来更新。
+
+# 这些命令的顺序决定了命令在 /k help 中的显示顺序
+# 第一个命令有意包含所有可能的选项。
+help:
+  name: help
+  aliases: [ '?', 'h', '--help' ]
+  disabled: false
+  cooldown: 0
+  disabled-worlds: [ world_nether ]
+create:
+  name: create
+  aliases: [ new ]
+lore:
+  name: lore
+  aliases: [ desc, description, motd ]
+rename:
+  name: rename
+  aliases: [ ]
+tag:
+  name: tag
+  aliases: [ ]
+show:
+  name: show
+  aliases: [ info, who ]
+home:
+  name: home
+  aliases: [ spawn ]
+unsethome:
+  name: unsethome
+  aliases: [ homeunset ]
+nexus:
+  aliases: [ setnexus, nexusset, placenexus, nexusplace ]
+king:
+  aliases: [ setking, leader, owner, ownership ]
+sethome:
+  aliases: [ homeset ]
+chat:
+  aliases: [ channel, chan, c ]
+bank:
+  aliases: [ money, $ ]
+top:
+  name: top
+  aliases: [ ]
+disband:
+  name: disband
+  aliases: [ delete ]
+
+### Kingdom Member Management 王国会员管理 ###
+invite:
+  name: invite
+accept:
+  name: accept
+  aliases: [ acceptinvite, acceptinv, acceptinvitation ]
+decline:
+  aliases: [ deny, denied, reject ]
+join:
+  name: join
+  aliases: [ ]
+leave:
+  name: leave
+  aliases: [ left ]
+kick:
+  name: kick
+  aliases: [ ]
+promote:
+  name: promote
+  aliases: [ ]
+demote:
+  name: demote
+  aliases: [ ]
+
+### Claims 索赔 ###
+claim:
+  name: claim
+  aliases: [ ]
+  commands:
+    auto:
+      aliases: [ a ]
+    square:
+      aliases: [ sqr ]
+      cooldown: 20 sec
+    fill:
+      aliases: [ ]
+      cooldown: 10 sec
+    line:
+      aliases: [ ]
+    corner:
+      aliases: [ corners ]
+      cooldown: 5 sec
+    clipboard:
+      name: clipboard
+      aliases: [ clip ]
+unclaim:
+  name: unclaim
+  aliases: [ ]
+unclaimall:
+  name: unclaimall
+  aliases: [ allunclaim ]
+undo:
+  name: undo
+  aliases: [ ]
+
+inventory:
+  aliases: [ inv, invsee ]
+vault:
+  aliases: [ storage ]
+
+book:
+  aliases: [ rules, rule, handbook, notes, note ]
+
+  commands:
+    edit: ~
+    open: ~
+    rename: ~
+    preview:
+      aliases: [ view ]
+    remove:
+      aliases: [ delete, del ]
+    discard:
+      aliases: [ cancel ]
+
+visualize:
+  aliases: [ visualizer, visual, v ]
+
+  commands:
+    toggle:
+      name: toggle
+      aliases: [ ]
+    permanent:
+      name: permanent
+      aliases: [ perm ]
+    markers:
+      name: markers
+      aliases: [ type ]
+    all:
+      aliases: [ a ]
+pvp:
+  name: pvp
+  aliases: [ ]
+broadcast:
+  name: broadcast
+  aliases: [ bc ]
+fly:
+  name: fly
+  aliases: [ flight ]
+sneak:
+  aliases: [ silent, stealth ]
+
+### Resource Points 资源点 ###
+item:
+  aliases: [ customitem, items ]
+  commands:
+    give:
+      aliases: [ g ]
+    inject:
+      aliases: [ embed, setworth, worth ]
+donate:
+  name: donate
+  aliases: [ give, giverp, rpgive ]
+resourcepoints:
+  aliases: [ rp, resourcepoint ]
+  commands:
+    transfer: ~
+    transit: ~
+    withdraw: ~
+    converter:
+      aliases: [ convert ]
+extractor:
+  aliases: [ extractors, extract ]
+tradable:
+  name: tradable
+  aliases: [ worth, tradeable ]
+sell:
+  name: sell
+  aliases: [ s ]
+
+### Relations 关系###
+ally:
+  name: ally
+  aliases: [ alliance, allies ]
+enemy:
+  name: enemy
+  aliases: [ enemies ]
+truce:
+  name: truce
+  aliases: [ ]
+revoke:
+  name: revoke
+  aliases: [ neutral ]
+
+map:
+  name: map
+  aliases: [ ]
+invade:
+  name: invade
+  aliases: [ invasion ]
+teleport:
+  name: teleport
+  aliases: [ tp, teleportation ]
+surrender:
+  name: surrender
+  aliases: [ forfeit, ff ]
+
+### Others  其他 ###
+about:
+  aliases: [ version, ver, v, '-v', '--version' ]
+gui:
+  aliases: [ ]
+updates:
+  name: updates
+  aliases: [ update ]
+reload:
+  name: reload
+  aliases: [ ]
+
+
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                       Outpost                       |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+outpost:
+  name: outpost
+  aliases: [ outposts ]
+
+  commands:
+    create:
+      aliases: [ new ]
+    join:
+      aliases: [ participate ]
+    stop:
+      aliases: [ end ]
+    teleport:
+      aliases: [ tp ]
+    start:
+      aliases: [ begin ]
+    remove:
+      aliases: [ delete, del ]
+    spawn:
+      aliases: [ setspawn ]
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                        Nation                       |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+nation:
+  name: nation
+  aliases: [ community, civilization, civil ]
+
+  commands:
+    broadcast:
+      name: broadcast
+      aliases: [ bc ]
+    nexus:
+      name: nexus
+      aliases: [ setnexus, nexusset, placenexus, nexusplace ]
+
+      commands:
+        open: ~
+        remove: ~
+    setspawn:
+      name: setspawn
+      aliases: [ homeset, sethome, spawnset ]
+    unsetspawn:
+      name: unsetspawn
+      aliases: [ spawnunset, unsethome, homeunset ]
+    capital:
+      name: capital
+      aliases: [ king ]
+    show:
+      name: show
+      aliases: [ info, who ]
+    disband:
+      name: disband
+      aliases: [ delete ]
+    accept:
+      name: accept
+      aliases: [ acceptinvite, acceptinv, acceptinvitation ]
+    promote:
+      name: promote
+      aliases: [ ]
+    bank:
+      name: bank
+      aliases: [ money, $ ]
+    top:
+      name: top
+      aliases: [ ]
+    leave:
+      name: leave
+      aliases: [ left ]
+    decline:
+      name: decline
+      aliases: [ deny, denied, reject ]
+    create:
+      name: create
+      aliases: [ new ]
+    join:
+      name: join
+      aliases: [ ]
+    spawn:
+      name: spawn
+      aliases: [ home ]
+    invite:
+      name: invite
+      aliases: [ inv ]
+    demote:
+      name: demote
+      aliases: [ ]
+    kick:
+      name: kick
+      aliases: [ ]
+    rename:
+      name: rename
+      aliases: [ ]
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                        Admin                        |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+admin:
+  name: admin
+  aliases: [ administrator, administration ]
+
+  commands:
+    home:
+      aliases: [ h ]
+    pacifism:
+      aliases: [ pacifist ]
+    rename:
+      aliases: [ name ]
+    test:
+      name: test
+      aliases: [ msg ]
+    shield:
+      name: shield
+      aliases: [ s ]
+    nexus:
+      name: nexus
+      aliases: [ ]
+    dynmap:
+      name: dynmap
+      aliases: [ ]
+    nation:
+      name: nation
+      aliases: [ nations, n ]
+      commands:
+        disband:
+          name: disband
+          aliases: [ delete ]
+    sound:
+      name: sound
+      aliases: [ testsound, soundtest ]
+    hologram:
+      name: hologram
+      aliases: [ holograms, holo ]
+    toggle:
+      name: toggle
+      aliases: [ admin, bypass ]
+    disband:
+      name: disband
+      aliases: [ delete ]
+    unclaim:
+      name: unclaim
+      aliases: [ ]
+    resourcepoints:
+      name: resourcepoints
+      aliases: [ rp, resourcepoint ]
+    bank:
+      name: bank
+      aliases: [ vault ]
+    claim:
+      name: claim
+      aliases: [ ]
+    rank:
+      name: rank
+      aliases: [ ]
+    land:
+      name: land
+      aliases: [ tpland ]
+    join:
+      name: join
+      aliases: [ ]
+    maxLandModifier:
+      name: maxLandModifier
+      aliases: [ mlm ]
+    player:
+      name: player
+      aliases: [ info ]
+    masswar:
+      name: masswar
+      aliases: [ ]
+    evaluate:
+      name: evaluate
+      aliases: [ eval ]
+    kick:
+      name: kick
+      aliases: [ ]
+    dailychecks:
+      name: dailychecks
+      aliases: [ dailycheck ]
+    spy:
+      name: spy
+      aliases: [ ]
+    execute:
+      aliases: [ exec ]

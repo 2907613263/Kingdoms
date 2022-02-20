@@ -1,0 +1,380 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                                   Claims                                    |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 如果索赔应该彼此相邻。
+# 此选项不受关系属性的影响。
+# 例如，如果将其设置为 1，就会发生这种情况。
+# + 是你可以声称的土地（假设它们无人认领）
+# - 是你不能声称的土地（假设它们无人认领）
+# * 是您拥有的土地。
+# - - - - - - -
+# - - + + + - -
+# - - + * + - -
+# - - + + + - -
+# - - - - - - -
+
+# 现在以 2 为例
+# - - - - - - -
+# - + + + + + -
+# - + + + + + -
+# - + + * + + -
+# - + + + + + -
+# - + + + + + -
+# - - - - - - -
+
+# 高数字将滞后于服务器。
+# 如果您使用此选项，建议将其保持在 3 以下。
+# 高于此的任何内容都是毫无意义的，并且会滞后于服务器。 您应该关闭此选项。
+# 设置为 0 以禁用。
+connection-radius: 0
+
+# 如果来自不同王国的索赔应该在他们之间有距离。
+# 这些任何王国都不能声称的土地，根本不会受到影响。 唯一的限制是除非你入侵他们旁边的王国，否则他们不能被认领。
+# 此选项不受关系属性的影响。
+# 例如，如果将其设置为 1，就会发生这种情况。
+# + 是你可以声称的土地（假设它们无人认领）
+# - 是你不能声称的土地（假设它们无人认领）
+# * 是另一个王国拥有的土地。
+# + + + + + +
+# + - - - + +
+# + - * - + +
+# + - - - + +
+# + + + + + +
+
+# 高数字将滞后于服务器。
+# 设置为 0 以禁用。
+distance: 0
+
+# 声称被禁用的世界。
+disabled-worlds: [ world_nether, world_the_end ]
+
+# 如果可能的话，一旦玩家创建了一个王国，就会声称玩家周围的土地。
+# 设置为 0 以仅声称玩家所在的土地。
+# 任何大于 0 的数字都将确定玩家所在位置的声称土地的平方半径。
+# 设置为 -1 以禁用。
+# 如果中央块（玩家的位置）无法被认领，这个过程将不会继续。
+claim-on-create: 0
+
+# 如果拥有的土地数量低于这个数字，有多少索赔应该是免费的？
+starter-free: 3
+
+# 如果玩家需要在所有空闲土地都用完后再次确认认领土地。
+# 这是玩家在命令结束前需要再次执行命令的时间。
+# 设置为 0 以禁用。
+# 如果您处于冷却时间，此冷却时间也会刷新，以避免因声称拥有多个土地而烦人的确认。
+confirmation: 10s
+
+# /k claim fill
+# https://github.com/CryptoMorin/KingdomsX/wiki/Commands#k-claim-autofillx-y
+fill:
+  # 允许检查形状边界以开始填充的最大距离。
+  max-distance: 5
+
+  # 填充形状时允许声称的最大土地。
+  max-claims: 50
+
+# /k claim square <radius>
+# 5 = 5 * 5 = 玩家周围的 25 个区块。
+square-max-radius: 5
+
+# /k claim line <distance>
+# 以块为单位的距离，而不是块。
+line-max-distance: 10
+
+# Max claims per a /k claim corner.
+corner-max-claims: 20
+
+# /k claim <x> <z>
+# 这是块距离，而不是块距离。
+# 请注意，这将影响来自 /k map 地图的交互式声明
+coordinates-claim-max-distance: 30
+
+# 不允许玩家在受 WorldGuard 保护的范围内占领土地的范围。
+# 请注意，此功能仍处于试验阶段，仅适用于单个声明（不适用于剪贴板等批量声明）高数字可能会导致延迟峰值。
+# 高数字可能会导致滞后峰值。
+# 这里指定的数字是基于土地，而不是块。
+protected-region-radius: 3
+
+# 撤销索赔的历史。
+history:
+  # 如果您禁用了该命令，您也应该在此处禁用它以停止浪费内存。
+  enabled: true
+  # 土地要求保留的历史限制。
+  # 较早的索赔历史记录将被自动删除。
+  limit: 10
+
+# 用于计算王国最大宣称的公式（%kingdoms_max_lands% 占位符）。
+# 也可以使用所有占位符和数学函数，例如 log() 和 round()。
+# 请注意，在此处使用 %kingdoms_max_lands% 可能会导致堆栈溢出错误，从而使您的服务器崩溃。
+# 当然，这里不能使用播放器占位符。 只有王国和国家占位符。
+# 您还可以使用“max_claims”占位符来进行 max-claims misc 升级缩放，可以在 misc-upgrades.yml 配置中找到。
+max-claims: "((%kingdoms_members% + %kingdoms_nation_kingdoms%) * 5) + %kingdoms_max_lands_modifier% + max_claims"
+
+# 您只能构建关系属性允许构建的声明。
+# 可以在 config.yml “disabled-worlds” 选项中为特定世界禁用此功能。
+build-in-claimed-only:
+  # 对于这些选项中的任何一个，这两个选项都需要设置为 true
+  place: false
+  break: false
+
+  # 此选项会显着影响服务器的性能。
+  # 如果附近有属于他们王国的领地，则允许玩家建造的半径。
+  # 设置为 0 以禁用。
+  unclaimed-build-radius: 0
+
+  # 如果玩家应该为建筑而不是完全禁用建筑付费。
+  charges:
+    enabled: false
+
+    # true：如果在“unclaimed-build-radius”内建造时应向玩家收费，这将完全禁用半径外的建造。
+    # false：如果在“unclaimed-build-radius”之外建造时应向玩家收费，这将允许在半径内建造而无需收费。
+    # 如果“unclaimed-build-radius”被禁用，这将向任何无人认领的土地上的玩家收费。
+    in-range: true
+
+    # 请注意，资源点来自玩家的王国，但金钱直接取自玩家的余额。
+    placing:
+      resource-points: 0
+      money: 0
+    breaking:
+      resource-points: 0
+      money: 0
+
+# 启用自动声明/取消声明时显示操作栏。
+actionbar:
+  auto-claim: true
+  auto-unclaim: true
+  keep: true
+
+# 土地中激活的信标只会影响其王国与拥有土地的王国具有“停火”属性的玩家。
+beacon-protected-effects: true
+
+# 将这些药水扔给与你有停火属性的玩家是不允许的。
+potion-protected-effects: [ POISON, WEAKNESS, SLOW, BLINDNESS, HARM, WITHER ]
+
+# 他们支持方程式。
+resource-points:
+  # 收回土地后返还给玩家的资源点数。 设置为 0 以禁用。
+  # 或者您可以将其设置为负值以获取资源点。
+  refund-unclaim: 0
+
+  # 要求土地所需的资源点数量。
+  claims: 50
+  auto-claims: 55
+
+money:
+  # 收回土地后返还给玩家的金额。 设置为 0 以禁用。
+  # 或者您可以将其设置为负值以获取资源点。
+  refund-unclaim: 0
+
+  # 要求土地所需的金额。
+  claims: 50
+  auto-claims: 55
+
+# 在收回某些包含以下元素之一的土地之前发送确认消息。
+# 优先级：Nexus -> 主页 -> 结构 -> 炮塔
+unclaim-confirmation:
+  turrets: false
+  structures: true
+  home: true
+  nexus: true
+
+# /k unclaimall
+unclaim-all:
+  announce: true
+  keep-nexus-land: true
+  cost: 0
+  confirm:
+    enabled: true
+    time: 15
+    gui: true
+
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                         Indicators & Visualizers                            |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+
+indicator:
+  # Wilderness regions that are protected will not have indicators.
+  ignore-worldguard-regions: true
+
+  # Display these indicators for players that don't have a kingdom.
+  kingdomless-enabled: true
+
+  # The default settings for land indicators (visualizers)
+  default:
+    # The name of the default option used for /k visual markers
+    name: 'Default'
+
+    # Either 'blocks' or one of the particle entry names (not the name defined in them, the config entry name).
+    # E.g. the defaults are 'blocks', 'horizontal' and 'vertical'
+    method: blocks
+
+  particles:
+    horizontal:
+      name: 'Horizontal'
+      particle: REDSTONE
+      count: 10
+      height: 10
+      delay: 10
+      duration: 10
+      rates:
+        vertical: 4
+        horizontal: 30
+    vertical:
+      name: 'Vertical'
+      particle: REDSTONE
+      count: 10
+      height: 5
+      delay: 10
+      duration: 10
+      rates:
+        vertical: 30
+        horizontal: 4
+
+  # 添加块可视化器以分隔块。
+  # 它类似于 F3+G 块边界。
+  # 玩家可以从 /k 可视化控制他们的可视化行为
+  visualizer:
+    # 如果默认情况下应该为玩家启用可视化工具。
+    # 他们可以使用 /k visualize切换来禁用它
+    enabled: false
+
+    # 标记类型 /k 可视标记的名称
+    name: 'Blocks'
+
+    # 如果上面的选项设置为 false，那么它将检查玩家下方的方块，直到它撞到地板上。 地板血取决于它的类型（是否可以通过）。
+    # 对于使用 1.12 及以下版本的服务器，此类型检查不准确。
+    # 高度检查限制应较低以避免滞后。
+    # 如果在此范围内没有找到地块，则指示器将显示在 (y - x) 上，其中 x 是选项，y 是玩家的 y 轴。
+    # 设置为 0：方块将出现在与玩家站立的方块相同的 y 轴上。
+    # 否则块将被放置在地板块上。
+    floor-check-height: 5
+
+    # 如果块应该可视化块周围的所有边界块。
+    # 这通常会导致很多延迟。 不建议。
+    # 用于这些块的材料是“双块”。 您可以在下面更改它们。
+    border: false
+
+    # 忽略启用的选项。
+    # 土地被认领或无人认领时是否应显示指标？
+    on-claim: true
+
+    # 指示块应停留的时间量。
+    # 在几秒钟内。
+    stay: 3
+
+  # 发送指标和可视化工具的土地类型。
+  # corner-block：用于表示块角的 4 个角块。
+  # two-blocks：每个边角块旁边的两个块。
+  # actionbar：进入该类土地时发送的action bar消息。
+  # title：进入该类型土地时发送的标题信息。
+  #   -> 标题、副标题、淡入、停留、淡出（所有这三个都在记号中）声音：进入此类土地时播放的声音。
+  # send-messages-for-same-chunk-type：如果玩家进入与之前的土地相同类型的土地，则应再次使用标题、动作条、可视化工具和声音。
+  #   例如，如果您要从无人认领的土地前往另一个无人认领的土地，并且在荒野中将此选项设置为 true，则消息将再次显示。
+  # 您可以删除这些选项中的任何一个，它们将不会被使用。 或者您可以将它们中的任何一个添加到您想要的任何类型中。
+  # 带有“王国”标识符而不是“王国”的占位符用于与土地王国相关的占位符。
+  wilderness:
+    corner-block: SEA_LANTERN
+    two-block: QUARTZ_BLOCK
+    actionbar: "&8&l-=( &2&lUnoccupied Land &8&l)=-"
+    particles:
+      horizontal:
+        color: 0, 0, 0
+      vertical:
+        color: 0, 0, 0
+  no-kingdom:
+    title:
+      title: "%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    particles:
+      horizontal:
+        color: 255, 255, 255
+      vertical:
+        color: 255, 255, 255
+
+    corner-block: SEA_LANTERN
+    two-block: IRON_BLOCK
+  self:
+    particles:
+      horizontal:
+        color: 0, 255, 0
+      vertical:
+        color: 0, 255, 0
+
+    title:
+      title: "&2%kingdoms_name%"
+      subtitle: "%kingdoms_lore%"
+      fade-in: 10
+      stay: 40
+      fade-out: 10
+
+    corner-block: SEA_LANTERN
+    two-block: EMERALD_BLOCK
+  neutral:
+    particles:
+      horizontal:
+        color: 255, 255, 255
+      vertical:
+        color: 255, 255, 255
+    title:
+      title: "%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    corner-block: SEA_LANTERN
+    two-block: IRON_BLOCK
+  ally:
+    particles:
+      horizontal:
+        color: 100, 255, 0
+      vertical:
+        color: 100, 255, 0
+    title:
+      title: "&6%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    corner-block: SEA_LANTERN
+    two-block: DIAMOND_BLOCK
+  truce:
+    particles:
+      horizontal:
+        color: 255, 255, 0
+      vertical:
+        color: 255, 255, 0
+    title:
+      title: "&e%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    corner-block: SEA_LANTERN
+    two-block: GOLD_BLOCK
+  nation:
+    particles:
+      horizontal:
+        color: 0, 0, 255
+      vertical:
+        color: 0, 0, 255
+    title:
+      title: "&9%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    corner-block: SEA_LANTERN
+    two-block: BLUE_WOOL
+  enemy:
+    particles:
+      horizontal:
+        color: 255, 0, 0
+      vertical:
+        color: 255, 0, 0
+    title:
+      title: "&c%kingdom_name%"
+      subtitle: "%kingdom_lore%"
+
+    corner-block: SEA_LANTERN
+    two-block: REDSTONE_BLOCK
+    # sound: AMBIENT_CAVE, 0.5

@@ -1,0 +1,54 @@
+title: "&c火焰炮塔"
+type: HOPPER
+sound: ITEM_ARMOR_EQUIP_DIAMOND
+
+options:
+  ammo:
+    name: "&9弹药&8: &2%ammo%"
+    material: ARROW
+    ammo: 10
+    cost: 10
+    lore:
+      - '&2用 &610 &2资源点 &2购买 &610 &2弹药.'
+    slot: 0
+  upgrade:
+    upgrade:
+      condition: "%level% < %max_level%"
+      name: "&9升级&8: &6%level_roman% &7➛ &6%next_level_roman%"
+      material: NETHER_STAR
+      lore:
+        - "&7⚫ &2范围&8: &6%range% &7➔ &6%next_range%"
+        - "&7⚫ &2最大弹药&8: &6%max_ammo% &7➔ &6%next_max_ammo%"
+        - "&7⚫ &2冷却&8: &6%cooldown% &7➔ &6%next_cooldown%"
+        - "&7⚫ &2最大目标&8: &6%max_targets% &7➔ &6%next_max_targets%"
+        - "&7⚫ &2速度&8: &6%speed% &7➔ &6%next_speed%"
+        - "&7⚫ &2伤害&8: &6%damage% &7➔ &6%next_damage%"
+        - ""
+        - "&7⚫ &2最大等级l&8: &6III"
+        - "&7⚫ &2资源点&8: &6%upgrade_cost%"
+    maxxed:
+      condition: "true"
+      name: "&9等级&8: &6%level_roman%"
+      material: NETHER_STAR
+      lore:
+        - "&7⚫ &2范围&8: &6%range%"
+        - "&7⚫ &2最大弹药&8: &6%max_ammo%"
+        - "&7⚫ &2冷却&8: &6%cooldown%"
+        - "&7⚫ &2最大目标&8: &6%max_targets%"
+        - "&7⚫ &2速度&8: &6%speed%"
+        - "&7⚫ &2伤害&8: &6%damage%"
+    slot: 1
+  break:
+    name: "&c打破"
+    material: REDSTONE_BLOCK
+    sound: default
+    lore:
+      - "&4拆下这个炮台."
+    slot: 3
+  close:
+    name: "&c关闭"
+    material: BARRIER
+    sound: default
+    lore:
+      - "&6关闭界面"
+    slot: 4

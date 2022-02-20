@@ -1,0 +1,92 @@
+title: "&8-=( &5结构 &8)=-"
+rows: 3
+sound: BLOCK_CONDUIT_ACTIVATE
+
+# Apparently HIDE_POTION_EFFECTS item flag will
+# remove the disc's name from the lore...
+options:
+  powercell:
+    name: "&4动力电池"
+    material: MUSIC_DISC_CHIRP
+    sound: BLOCK_REDSTONE_TORCH_BURNOUT
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6所有被动力电池包围的土地"
+      - "土地 (9x9) 不能被入侵，直到"
+      - "直到动力电池先被入侵."
+    posx: 3
+    posy: 2
+  extractor:
+    name: "&a提取器"
+    material: MUSIC_DISC_CAT
+    sound: BLOCK_ANVIL_LAND
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6提取器将产生资源点."
+      - "&6您可以随时收集资源点"
+    posx: 4
+    posy: 2
+  outpost:
+    name: "&e前哨"
+    material: MUSIC_DISC_13
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP, 1.5
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6你可以从以下地方买到经验瓶"
+      - "使用资源点的前哨."
+    posx: 5
+    posy: 2
+  warppad:
+    name: "&c传送器"
+    material: MUSIC_DISC_BLOCKS
+    sound: ENTITY_ENDERMAN_TELEPORT
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6可以用来传送"
+      - "从一个建筑到另一个建筑."
+    posx: 6
+    posy: 2
+  regulator:
+    name: "&3调整者 &7[&b暂未开放&7] &c请勿购买"
+    material: MUSIC_DISC_WARD
+    sound: ENTITY_VILLAGER_AMBIENT
+    flags: [HIDE_POTION_EFFECTS]
+    lore:
+      - "&6管理玩家属性，如建筑,"
+      - "炮塔停火等..."
+      - "改变哪一个玩家可以与哪个方块互动."
+      - "禁用乱民或动物产卵和炮塔."
+      - "启用爆炸."
+      - "自动装填炮塔弹药."
+    posx: 7
+    posy: 2
+  siege-cannon:
+    name: "&3Siege Cannon"
+    material: MUSIC_DISC_STRAD
+    sound: ENTITY_VILLAGER_AMBIENT
+    flags: [ HIDE_POTION_EFFECTS ]
+    lore:
+      - "&6Cannon used to break a kingdom's"
+      - "shield."
+      - "&2Cost&8: &6%cost%"
+    posx: 5
+    posy: 1
+
+  back:
+    name: "&2返回"
+    material: PLAYER_HEAD
+    sound: default
+    # https://minecraft-heads.com/custom-heads/alphabet/10299-gray-backward
+    skull: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQxMzNmNmFjM2JlMmUyNDk5YTc4NGVmYWRjZmZmZWI5YWNlMDI1YzM2NDZhZGE2N2YzNDE0ZTVlZjMzOTQifX19"
+    lore:
+      - "&6返回上一菜单."
+    posx: 5
+    posy: 3
+  cyan-glass:
+    name: ""
+    material: CYAN_STAINED_GLASS_PANE
+    slots: [1, 7, 9, 17, 19, 25]
+  light-blue-glass:
+    name: ""
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    slots: [0, 8, 18, 26]
