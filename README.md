@@ -1,0 +1,2 @@
+# Kingdoms
+Chinese language files
