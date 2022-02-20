@@ -1,0 +1,334 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                      Structures                     |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+disable-shift-click: true
+remove-unclaimed: false
+
+# Should structures go directly to the player's inventory who broke the structure.
+to-inventory-on-break: false
+
+structures:
+  national-nexus:
+    name: "&3National Nexus"
+    type: national-nexus
+    particles:
+      1:
+        place:
+          particle: DRAGON_BREATH
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: DRAGON_BREATH
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break:
+    block: BEACON
+    hologram:
+      1:
+        lines:
+          - "&8-=( &9National Nexus &8)=-"
+        height: 1
+  # Refer to conifg.yml for more nexus options.
+  nexus:
+    name: "&bNexus"
+    type: nexus
+    particles:
+      1:
+        place:
+          particle: DRAGON_BREATH
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: DRAGON_BREATH
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+    block: BEACON
+    hologram:
+      1:
+        lines:
+          - "&8-=( &9Nexus &8)=-"
+        height: 1
+  powercell:
+    name: "&4Powercell"
+    type: powercell
+    default-name: 'Powercell'
+    particles:
+      1:
+        place:
+          particle: REDSTONE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+          color: 255, 0, 0
+        break:
+          particle: REDSTONE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+          color: 255, 0, 0
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+    hologram:
+      1:
+        lines:
+          - "&8-=( &4Powercell &8)=-"
+        height: 1
+    block:
+      1: REDSTONE_LAMP
+    cost: 1000
+    sell: 500
+    item:
+      1:
+        name: "&bPowercell"
+        material: MUSIC_DISC_BLOCKS
+        flags: [ HIDE_POTION_EFFECTS ]
+        lore:
+          - "&7Chunks next to a chunk"
+          - "with a power cell cannot be"
+          - "invaded without invading the"
+          - "power cell first."
+          - "&cDoes not work on other power cell lands."
+  extractor:
+    name: "&2Extractor"
+    type: extractor
+    default-name: 'Extractor'
+    particles:
+      1:
+        place:
+          particle: CRIT
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: CRIT
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+    hologram:
+      1:
+        lines:
+          - "&8-=( &2Extractor &8)=-"
+        height: 1
+    block:
+      1: EMERALD_BLOCK
+    cost: 2000
+    sell: 1000
+    # instant: true
+    # non-instant-delay: 1 hour
+    capacity: 500
+    generator:
+      amount: 1
+      every: 10sec
+    item:
+      1:
+        name: "&2Extractors"
+        material: EMERALD_BLOCK
+        #        flags: [ HIDE_POTION_EFFECTS ]
+        lore:
+          - "&6Extractors will produce resource points."
+          - "&6You can collect the resource points at any time."
+  outpost:
+    name: "&eOutpost"
+    default-name: 'Outpost'
+    type: outpost
+    particles:
+      1:
+        place:
+          particle: SPELL
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: SPELL
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+    hologram:
+      1:
+        lines:
+          - "&8-=( &eOutpost &8)=-"
+        height: 1
+    block:
+      1: HAY_BLOCK
+    cost: 500
+    sell: 250
+    item:
+      1:
+        name: "&9Outpost"
+        material: HAY_BLOCK
+        flags: [ HIDE_POTION_EFFECTS ]
+        lore:
+          - "&7The Outpost allows direct access to your Nexus."
+          - "&7It enables you to access turrets, upgrades,"
+          - "and unlockable structures."
+          - "&7Outposts can produce exp bottles from"
+          - "resource points aswell."
+  warppad:
+    name: "&cWarp pad"
+    type: warppad
+    default-name: 'Warp Pad'
+    # The countdown for the teleportation.
+    teleport-delay: 3
+    particles:
+      1:
+        place:
+          particle: CLOUD
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: CLOUD
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+        teleport-sound: BLOCK_PORTAL_TRAVEL
+    hologram:
+      1:
+        lines:
+          - "&8-=( &cWarpPad &8)=-"
+          - "SPACE: 0.2"
+          - "%name%"
+        height: 1.3
+    block:
+      1: END_PORTAL_FRAME
+    cost: 2000
+    sell: 1000
+    item:
+      1:
+        name: "&cWarpPad"
+        material: END_PORTAL_FRAME
+        lore:
+          - "&6Warp pads can be used to teleport"
+          - "from a structure to another."
+          - "&2Name&8: &7%name%"
+  regulator:
+    name: "&3Regulator"
+    default-name: 'Regulator'
+    type: regulator
+    particles:
+      1:
+        place:
+          particle: ENCHANTMENT_TABLE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: ENCHANTMENT_TABLE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+    hologram:
+      1:
+        lines:
+          - "&8-=( &3Regulator &8)=-"
+        height: 1
+    block:
+      1: LECTERN
+    cost: 5000
+    sell: 4000
+    item:
+      1:
+        name: "&3Regulator"
+        material: LECTERN
+        lore:
+          - "&6Manage player attributes such as building,"
+          - "turret ceasefire and etc..."
+          - "Change which player can interact with what block."
+          - "Disable mob or animal spawning and turrets."
+          - "Enable explosions."
+          - "Auto fill turrets ammo."
+  siege-cannon:
+    name: "&5Siege Cannon"
+    type: siege-cannon
+    default-name: 'Cannon'
+    shield-damage: 10min
+    projectile:
+      yield: 2
+    # Only the material and the amount is customizable.
+    invalid-ammo-message: ""
+    # Cooldown in seconds before the cannon can shoot again (can be reloaded during cooldown)
+    # Note that this cooldown doesn't persist between restarts.
+    cooldown: 10
+    actionbar:
+      fire: '&2Fire'
+      cooldown: '&cCooldown&8: &e%cooldown%'
+      not-loaded: '&cCannon not loaded'
+    ammo:
+      type: FIRE_CHARGE
+    allow-damaging: # These options accept both lists and 'true' for all types
+      # Note that turret and structure types are case-sensitive.
+
+      turrets: true
+
+      structures: [ 'siege-cannon', 'extractor', 'outpost', 'warppad', 'regulator' ]
+
+      # Materials
+      # Note that the materials that fireballs cannot destroy
+      # in general are excluded automatically.
+      blocks: true
+
+      # This option doesn't support lists.
+      protected-blocks: false
+    particles:
+      1:
+        shoot:
+          particle: FLAME
+          count: 30
+          offset: 0.5
+        hit:
+          particle: FLAME
+          count: 50
+          offset: 2
+        place:
+          particle: ENCHANTMENT_TABLE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+        break:
+          particle: ENCHANTMENT_TABLE
+          count: 70
+          offset: 0.5, 0.5, 0.5
+    sounds:
+      1:
+        sit: ITEM_ARMOR_EQUIP_IRON
+        standup: ITEM_ARMOR_EQUIP_GOLD
+        place: BLOCK_BEACON_ACTIVATE
+        break: BLOCK_BEACON_DEACTIVATE
+        shoot: ENTITY_DRAGON_FIREBALL_EXPLODE
+        load: ITEM_BOTTLE_FILL_DRAGONBREATH
+        empty: ENTITY_ITEM_BREAK
+        cooldown: BLOCK_NOTE_BLOCK_BASS
+        hit: ~ # The explosion sound is enough.
+    hologram:
+      1:
+        lines:
+          - "&8-=( &5Siege Cannon &8)=-"
+        height: 1
+    block:
+      1: DISPENSER
+    cost: 5000
+    sell: 4000
+    item:
+      1:
+        name: "&5Siege Cannon"
+        material: DISPENSER
+        lore:
+          - "&6A cannon used to break kingdoms"
+          - "shields."
