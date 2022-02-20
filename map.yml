@@ -1,0 +1,390 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                         Map                         |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 地图的默认大小。 玩家可以使用 /k map 命令调整自己的大小。
+height: 4
+width: 12
+
+# 玩家可以使用 /k map 命令设置的地图限制。
+limit:
+  height: 10
+  width: 20
+
+# 只允许拥有王国的玩家使用此命令。.
+kingdom-member-only: false
+
+# 地图前后显示的消息。
+header: "   &7&m&l-&6&l&m--=[&7&l&m--&r &2&lMap&r &7&l&m--&6&l&m]=--&7&l&m-&r"
+footer: "&7&m&l--&6&l&m-=[&c✦&6&l&m]=--&e&l&m--&6&l&m--=[&c✦&6&l&m]=-&7&l&m--"
+
+# 地图元素开头的空格。
+begin: "      "
+# 每个地图元素之间的距离。
+distance: ""
+# 地图上显示的方向。
+compass: "   &9%compass%"
+
+# 基本上是 %compass% 占位符的翻译。
+cardinal-directions:
+  NORTH: "North"
+  SOUTH: "South"
+  WEST: "West"
+  EAST: "East"
+
+  NORTH_EAST: "North East"
+  NORTH_WEST: "North West"
+  SOUTH_EAST: "South East"
+  SOUTH_WEST: "South West"
+
+# 你可以在这里得到一些符号 https://coolsymbol.com/
+# hover：当您将鼠标悬停在元素图标上时显示的知识。
+# 动作：悬停动作。 你可以在这里读到它：https://github.com/CryptoMorin/KingdomsX/wiki/Configactions#不带“s”的特殊“%kingdoms_...%”（“%kingdoms_...%”）用于定位拥有王国的占位符  土地而不是正在查看地图的玩家王国。
+
+  
+
+elements:
+  protected:
+    icon: "&4▩"
+    hover: [ "&cProtected region" ]
+  you:
+    icon: "&2◆"
+    hover: [ "&6You&8: &2%X%&7, &2%Z%" ]
+  wilderness:
+    icon: "&7▩"
+    action: "/k claim %X% %Z%"
+    hover: [ "&6Location&8: &2%X%&7, &2%Z%", "&7Click to claim." ]
+  clipboard:
+    added:
+      icon: "&5▩"
+      action: "/k claim clipboard remove %X% %Z%"
+      hover: [ "&6Location&8: &2%X%&7, &2%Z%", "&7Click to remove from the clipboard." ]
+    failed:
+      icon: "&c▩"
+      action: "/k claim clipboard remove %X% %Z%"
+      hover:
+        - "&6Location&8: &2%X%&7, &2%Z%"
+        - "&7Failed to claim this land."
+        - "It's not necessary to remove it"
+        - "from the clipboard."
+    wilderness:
+      icon: "&7▩"
+      action: "/k claim clipboard add %X% %Z%"
+      hover: [ "&6Location&8: &2%X%&7, &2%Z%", "&7Click to add to the clipboard." ]
+
+  invasion:
+    icon: "&4▩"
+    hover:
+      - "&6Location&8: &2%X%&7, &2%Z%"
+      - "&cOngoing invasion in &e%kingdom_name%'s &cland."
+
+  nation-zone:
+    self:
+      icon: "&2◧"
+      hover:
+        - "&a%kingdoms_nation%'s Nation Zone"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6◧"
+      hover:
+        - "&6%kingdoms_nation%'s Nation Zone"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e◧"
+      hover:
+        - "&e%kingdoms_nation%'s Nation Zone"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f◧"
+      hover:
+        - "&f%kingdoms_nation%'s Nation Zone"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c◧"
+      hover:
+        - "&c%kingdoms_nation%'s Nation Zone"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+
+  land:
+    self:
+      icon: "&2▩"
+      action: "/k unclaim %X% %Z%"
+      hover:
+        - "&a%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+        - "&7Click to unclaim."
+    ally:
+      icon: "&6▩"
+      hover:
+        - "&6%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▩"
+      hover:
+        - "&e%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▩"
+      hover:
+        - "&f%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▩"
+      hover:
+        - "&c%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▩"
+      hover:
+        - "&9%kingdom_name%'s Land"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  nexus:
+    self:
+      icon: "&2▣"
+      hover:
+        - "&a%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▣"
+      hover:
+        - "&6%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▣"
+      hover:
+        - "&e%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▣"
+      hover:
+        - "&f%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▣"
+      hover:
+        - "&c%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▣"
+      hover:
+        - "&9%kingdom_name%'s Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  national-nexus:
+    self:
+      icon: "&2▣"
+      hover:
+        - "&a%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▣"
+      hover:
+        - "&6%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▣"
+      hover:
+        - "&e%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▣"
+      hover:
+        - "&f%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▣"
+      hover:
+        - "&c%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▣"
+      hover:
+        - "&9%kingdom_name%'s National Nexus"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  powercell:
+    self:
+      icon: "&2⊠"
+      hover:
+        - "&a%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6⊠"
+      hover:
+        - "&6%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e⊠"
+      hover:
+        - "&e%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f⊠"
+      hover:
+        - "&f%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c⊠"
+      hover:
+        - "&c%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9⊠"
+      hover:
+        - "&9%kingdom_name%'s Powercell"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  extractor:
+    self:
+      icon: "&2▨"
+      hover:
+        - "&a%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▨"
+      hover:
+        - "&6%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▨"
+      hover:
+        - "&e%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▨"
+      hover:
+        - "&f%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▨"
+      hover:
+        - "&c%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▨"
+      hover:
+        - "&9%kingdom_name%'s Extractor"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  outpost:
+    self:
+      icon: "&2▤"
+      hover:
+        - "&a%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▤"
+      hover:
+        - "&6%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▤"
+      hover:
+        - "&e%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▤"
+      hover:
+        - "&f%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▤"
+      hover:
+        - "&c%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▤"
+      hover:
+        - "&9%kingdom_name%'s Outpost"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  warppad:
+    self:
+      icon: "&2▥"
+      hover:
+        - "&a%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▥"
+      hover:
+        - "&6%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▥"
+      hover:
+        - "&e%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▥"
+      hover:
+        - "&f%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▥"
+      hover:
+        - "&c%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▥"
+      hover:
+        - "&9%kingdom_name%'s Warppad"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  regulator:
+    self:
+      icon: "&2▦"
+      hover:
+        - "&a%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▦"
+      hover:
+        - "&6%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▦"
+      hover:
+        - "&e%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▦"
+      hover:
+        - "&f%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▦"
+      hover:
+        - "&c%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▦"
+      hover:
+        - "&9%kingdom_name%'s Regulator"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+  siege-cannon:
+    self:
+      icon: "&2▦"
+      hover:
+        - "&a%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    ally:
+      icon: "&6▦"
+      hover:
+        - "&6%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    truce:
+      icon: "&e▦"
+      hover:
+        - "&e%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    neutral:
+      icon: "&f▦"
+      hover:
+        - "&f%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    enemy:
+      icon: "&c▦"
+      hover:
+        - "&c%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"
+    nation:
+      icon: "&9▦"
+      hover:
+        - "&9%kingdom_name%'s Siege Cannon"
+        - "&6Location&8: &2%X%&7, &2%Z%"

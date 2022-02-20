@@ -1,61 +1,61 @@
-#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
-#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
-#|                      Relations                      |#
-#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
-#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#|关系|#
+#|++++++++|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#|-=-=-=-=-=-=-=-=-=-=-=-|#
 
-# A kingdom can have these types of relation with another kingdom: Neutral, Enemy, Truce, Ally and Nation
-# Let's say nation A is allies with nation B.
-# If A who requested to be allies with nation B accepts or declines B relation terms, the relation attributes from B will be used.
-# For example if nation A wants to build in nation B land, and nation A has build attribute but nation B doesn't, it'll listen to nation Bs attributes.
-# Kingdom Allies, truces and enemies have more priority. If A has kingdom a and B has kingdom b, and a is allies with b,
-# then it'll listen to relation attributes of allies in b regardless of their nation's relation. If a and b are both in the
-# same nation their relation will always be "Nation" regardless of the kingdom's relation.
+#一个王国可以与另一个王国有这些类型的关系：中立，敌人，休战，盟友和国家
+#假设国家A与国家B是盟友。
+#如果请求与B国结盟的A接受或拒绝B关系条款，则将使用B的关系属性。
+#例如，如果国家 A 想要在 B 国土地上建造，而国家 A 有建造属性，但国家 B 没有，那么它将侦听国家 B 的属性。
+#王国盟友，休战和敌人更优先。如果 A 有王国 a，B 有王国 b，而 a 是 b 的盟友，
+#然后它会听从b中盟友的关系属性，而不管他们国家的关系如何。如果 a 和 b 都在
+# 同一个国家，无论王国的关系如何，他们的关系将永远是"民族"。
 
-# Relation request to a nation or a kingdom.
+#对一个国家或一个王国的关系请求。
 request-expiration: 1 day
 
-# If kingdoms relations should be checked when
-# interacting with a kingdom that is not in the same nation.
+#如果王国关系应该在什么时候检查
+# 与不在同一个国家的王国互动。
 prioritize-kingdom-relations: true
 
-# Allow kingdoms to have separate relations with kingdoms that are in their nation?
-# If you use this, it'll destroy the whole purpose of nation relations.
+#允许王国与在他们国家中的王国建立单独的关系？
+#如果你使用这个，它将破坏国家关系的整个目的。
 allow-relations-between-nation-kingdoms: false
 
-# This merely manages the data saved, so it applies after a server restart.
-# To disable it completely, remove it from the Nexus Settings GUI. The players will keep their relation data until the server
-# is restarted if you keep the GUI.
+#这仅管理保存的数据，因此在服务器重新启动后适用。
+#要完全禁用它，请将其从Nexus设置GUI中删除。玩家将保留其关系数据，直到服务器
+# 如果保留 GUI，则重新启动。
 custom-attributes: true
 
-# The PvP mode of the plugin. Needs a restart to be changed due to performance issues.
-# normal - Players can PvP anywhere based on their relation attributes.
-# claimed - Players can only PvP inside of claimed lands based on their relation attributes.
-# unclaimed - Players can only PvP outside of claimed lands based on their relation attributes.
-# masswar - Players can only pvp anywhere during masswars.
-# Note that when using the last two options, if one player is a claimed land and the other is in an unclaimed land, they cannot PvP.
+#插件的 PvP 模式。由于性能问题，需要更改重新启动。
+#正常 - 玩家可以根据他们的关系属性在任何地方进行PvP。
+#已认领 - 玩家只能根据其关系属性在已认领的土地上进行PvP。
+#无人认领 - 玩家只能根据其关系属性在声称的土地之外进行PvP。
+#大规模战争 - 玩家只能在大规模战争期间的任何地方进行PVP。
+#请注意，使用最后两个选项时，如果一个玩家是声称拥有主权的土地，而另一个玩家位于无人认领的土地上，则他们不能进行PvP。
 pvp: normal
 
-# Only apply kingdom relations if both parties agree on that specific relation attribute. Meaning that
-# the attribute will only take effects if they both enabled that attribute for their relation in kingdom settings.
-# Requires a server restart to be applied.
-# If set to false, only the receiving end's relation attributes will be taken into account.
-# What that means is, if you're trying to attack a player from a kingdom with their ceasefire attribute set to false
-# but your kingdom has the ceasefire attribute for the relation set to true, your members will not be able to attack the
-# kingdom, but that kingdom will be able to attack your members. That doesn't sound like something you'd want in most cases.
+#仅当双方就该特定关系属性达成一致时，才适用王国关系。意思是
+# 只有当他们都为王国设置中的关系启用该属性时，该属性才会生效。
+#需要应用服务器重新启动。
+#如果设置为 false，则仅考虑接收端的关系属性。
+#这意味着，如果你试图攻击来自一个王国的玩家，他们的停火属性设置为false。
+# 但是你的王国有停火属性，将关系设置为 true，你的成员将无法攻击
+#王国，但那个王国将能够攻击你的成员。在大多数情况下，这听起来不像你想要的东西。
 agreements: true
 
-# auto-revoke: If a kingdom declares that they no longer wish to be in a relation
-# with the other kingdom, the other kingdom will automatically have this relation revoked as well.
-# ceasefire: Members of the two kingdoms cannot PvP each other.
-# donate: Kingdoms can donate resource points to each other clicking their nexus. Note that they'll still be able to use /k donate
-# build: Kingdoms can build in each others lands, however you can't touch any turrets or structures.
-# invade: If kingdoms can invade each other.
-# interact: Kingdoms can interact and open chests, enchantment tables and other containers.
-# use: Kingdoms can use buttons, open doors and use pressure plates.
-# manage: Kingdoms can remove and place turrets and structures in your land.
-# Note that the placed turrets/structures will be for the kingdom that owns that land.
-# limit: How many kingdoms can a single kingdom have this type of relation with? Set to 0 for unlimited.
+# 自动撤销：如果一个王国宣布他们不再希望处于关系中
+#与另一个王国，另一个王国也将自动撤销这种关系。
+# 停火：两个王国的成员不能互相进行PvP。
+#捐赠：王国可以互相捐赠资源点，点击他们的关系。请注意，他们仍然可以使用 /k 捐赠
+#建造：王国可以在彼此的土地上建造，但你不能触摸任何炮塔或结构。
+#入侵：如果王国可以相互入侵。
+#互动：王国可以互动并打开宝箱，附魔表和其他容器。
+#用途：王国可以使用按钮，打开门和使用压力板。
+# 管理：王国可以移除并放置你的土地上的炮塔和建筑物。
+#请注意，放置的炮塔/结构将用于拥有该土地的王国。
+# 限制：一个王国可以与多少个王国有这种关系？设置为 0 表示无限制。
 relations:
   self:
     color: "&2"

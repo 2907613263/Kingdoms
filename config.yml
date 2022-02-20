@@ -1,0 +1,876 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                                                                                    |#
+#|          ██   ██ ██ ███    ██  ██████  ██████   ██████  ███    ███ ███████        |#
+#|          ██  ██  ██ ████   ██ ██       ██   ██ ██    ██ ████  ████ ██            |#
+#|          █████   ██ ██ ██  ██ ██   ███ ██   ██ ██    ██ ██ ████ ██ ███████      |#
+#|          ██  ██  ██ ██  ██ ██ ██    ██ ██   ██ ██    ██ ██  ██  ██      ██       |#
+#|          ██   ██ ██ ██   ████  ██████  ██████   ██████  ██      ██ ███████        |#
+#|                                                                                    |#
+#|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 所有配置文件在重新加载后将自动重新加载，无需使用 /k reload
+
+# 除了这个文件，还有其他的配置文件。
+# 这是与最基本功能相关的主要配置。
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|                                                             |#
+#|   SpigotMC: https://www.spigotmc.org/resources/77670/       |#
+#|   Wiki: https://www.github.com/CryptoMorin/KingdomsX/wiki   |#
+#|   Discord: https://www.discord.gg/cKsSwtt                   |#
+#|                                                             |#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                     Essentials                      |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 插件是否应该为每条消息使用前缀？
+# 如果设置为 false，则可以使用“PREFIX|” 在消息的开头包括前缀不管。
+# 如果设置为 true ，则可以使用“NOPREFIX|” 在消息的开头排除前缀不管。
+# 即使启用了此选项，默认情况下也不会为复杂消息显示前缀。
+prefix: false
+
+# 出于错误分析的原因。
+debug: false
+
+updates:
+  # 当服务器启动时以及当具有 Kingdoms.updates 权限的玩家加入服务器时，检查来自 Spigot 的插件更新。
+  # 如果没有找到新版本，这不会向玩家报告任何内容。
+  # 这还将缓存服务器启动时的结果。
+  # 如果将此设置为 false，您仍然可以使用 /k updates 命令检查更新。
+  check: true
+
+  # 插件是否应该自动将更新下载到指定路径？
+  # 如果您想更改此选项，还请阅读路径选项。
+  # This is not recommended for servers in production
+  # if you set the option below to automatically replace the
+  # JAR for you, as some builds contain massive changes
+  # which can lead to some unexpected behaviours.
+  download: false  
+
+  # 插件是否应该自动将更新下载到指定路径？
+  # 将创建在指定路径中找不到的任何文件夹。
+  # 可以使用的占位符是 %version% and %latest_version%
+  # 现在您可能会问，为什么需要使用当前版本？
+  # “plugins”文件夹中的“update”文件夹（文件夹名称可以在bukkit.yml中更改）用于自动将该文件夹中的任何JAR替换为“plugins”文件夹中具有相同名称的JAR。
+  # 自动将该文件夹中的任何 JAR 替换为“plugins”文件夹中具有相同名称的 JAR。
+  # 现在，由于插件 JAR 名称格式为“name-version”，因此该名称必须与“plugins”文件夹中的插件名称相同。
+  # 因此，如果您希望您的服务器在下载插件后自动为您更新插件，您必须使用当前版本。,
+  # 唯一不好的是，你当然会混淆版本。.
+  path: '../update/Kingdoms-%latest_version%.jar'
+
+# 语言文件名。
+# 将您翻译的文件放在插件的文件夹中。
+# 该文件的名称应与下面的选项相同，但没有 .yml 文件扩展名。
+# 其中一些语言文件已过时。
+# GUI 也有自己的语言文件，可以在“guis”文件夹中找到。
+# 命名它的标准方法是遵循 IETF 语言标签。
+# 来自 IETF (https://en.wikipedia.org/wiki/IETF_language_tag) 使用 ISO-639-1 https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+# 所有语言文件均由社区制作，不保证 100% 准确和完整。
+# 请参阅 https://github.com/CryptoMorin/KingdomsX/wiki/Config#language-file 如果你想翻译插件。
+# 如果您翻译了插件，您可以联系我，我会将其添加到插件中。
+# 可用语言：
+# en (English), hu (Hungarian), ru (Russian), es (Spanish), de (German), pl (Polish)
+lang: en
+
+# Backups plugin's data. Most of the options require a restart to be changed.
+backups:
+  # 默认情况下，每天都会进行备份。 
+  # 特别是每次服务器启动时，它都会检查当天是否进行了备份，然后再等待 24 小时。
+  # 它支持时间后缀。
+  interval: 24hrs
+
+  enabled:
+    enabled: true
+    data: true
+    configs: true
+
+  # 路径从 Kingdoms 插件文件夹开始。
+  folder: 'Backups'
+
+  # 如果启用此功能，则每次重新启动服务器时都会进行备份，而不考虑今天是否已经进行了备份（不覆盖以前的备份）。
+  ignore-todays-backup: false
+
+  # 自动删除早于此天数的备份。
+  # 设置为 0 以禁用。
+  delete-backups-older-than: 30
+
+database:
+  # 目前只有 JSON 可用。
+  method: JSON
+
+  # 自动保存程序应将数据保存到数据库的时间间隔（以秒为单位）。 
+  # 建议保持原样，但如果您有更大的服务器，最好使用更大的数字。
+  # 缓存过期时间是通过将自动保存间隔乘以 2 来计算的，因为如果缓存过期的速度快于可以保存的速度，数据将会丢失。
+  auto-save-interval: 30mins
+
+  # 除非您知道自己在做什么，否则请勿触摸它。
+  # 智能保存使用压缩数据并在保存到文件之前对其进行比较。
+  # 如果这个压缩数据表明不需要保存数据，它将为服务器节省一些 IO 操作，从而提高性能。
+  smart-save: true
+
+  # 不要改变 - 因为即使在阅读以下内容后，您也大多不知道它是如何破坏事物的。
+  # 如果你是一个大型网络，除非你有很多 RAM，否则你应该关闭它。
+  # 如果禁用此功能，每日检查间隔（包括税收、顶级王国奖励和...）和 /k top 将不起作用。
+  # 其他需要王国名称的功能也将不起作用。
+  load-all-data-on-startup: true
+
+  # 数据库的表名，也用作本地数据库的文件夹名。
+  tables:
+    nations: Nations
+    kingdoms: Kingdoms
+    players: Players
+    lands: Lands
+
+# 除了正常功能的东西（如命令）之外，这个插件在其中完全被禁用的世界。
+# 要在某些世界中禁用声明，请参阅 claim.yml
+disabled-worlds: [ ]
+
+# 管理员离开服务器后禁用管理员模式。
+# 此选项是出于安全目的。
+keep-admin-mode: false
+
+# 插件的通用时间格式化程序。
+# 仅当高于指定时间单位的时间单位为 0 时，才使用这些条目中的每一个。
+time-formatter:
+  # 例如，仅当时间小于 60 秒（1 分钟）时才使用此条目
+  seconds: '00:00:ssa'
+  minutes: '00:mma:ss'
+  hours: 'hha:mm:ss'
+  days: 'dda day(s), hh:mm:ss'
+  weeks: 'wwwwa week(s), dd day(s), hh:mm:ss'
+  months: 'MMA month(s), wwww week(s), dd day(s), hh:mm:ss'
+
+# /k help
+help:
+  # 单个页面中显示的命令数量。
+  commands: 5
+
+  # 限制页脚显示的页数。
+  # 这是上一页和下一页的限制。
+  # 例如，如果您的当前页面是 7，它将显示：
+  # 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+  footer-pages: 5
+
+# 用于阻止或禁止玩家执行特定动作的大多数动作的声音。
+error-sound: BLOCK_NOTE_BLOCK_BASS
+
+guis:
+  creative-sound: BLOCK_NOTE_BLOCK_BASS
+
+  # 如果播放器损坏，请关闭 GUI。
+  close-on-damage: true
+
+  # 允许与玩家库存中的物品进行交互。
+  # 这将防止物品被放置在 GUI 中（如果 GUI 不允许物品拖动），但它允许玩家在自己的库存中安排或丢弃物品。
+  # 请注意，某些 GUI，例如资源点转换器
+  # 默认情况下允许这样做。
+  allow-own-inventory-interact: true
+
+  # 单击选项的默认声音。
+  # 您必须使用“声音：默认”
+  # 用于此工作的 GUI 选项。
+  # 可以设置为“none”表示没有声音。
+  default-click-sound: BLOCK_TRIPWIRE_CLICK_ON
+
+# 自定义加入和留言。 一个好处是显示给王国成员的信息与那些不在同一个王国的人不同。
+# 权限： Kingdoms.silent.join 和 Kingdoms.silent.leave
+join-leave-messages:
+  enabled: true
+  join:
+    kingdom: "&8[&2◆&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8] &2%displayname%"
+    others: "&6%displayname% &2has joined the server."
+  leave:
+    kingdom: "&8[&c◆&8]&8[%kingdoms_rank_color%%kingdoms_rank_symbol%&8] &c%displayname%"
+    others: "&e%displayname% &chas left the server."
+
+# 当玩家不是王国或国家时使用的默认占位符。
+# 需要 /k reload 才能重新加载。
+# 您可以将任何占位符添加到此列表中。 而不是 _ 使用 - 并且不包括“kingdoms_”前缀。
+# 当此处未定义占位符时，还有默认默认占位符。
+# 所有文本占位符默认为空文本，所有数字占位符默认为 0
+default-placeholders:
+  name: ''
+  lore: ''
+  members: 0
+  territory: '&2Wilderness'
+  # 绿
+  color: '#00ff00'
+
+# The format of the /k broadcast message.
+# 王国占位符是指使用该命令的人。
+# 您可以使用 %displayname% 代替 %player%
+broadcast:
+  format: "\n&8[&6%kingdoms_name% &lBroadcast&8]&7|&8[%kingdoms_rank_color%%kingdoms_rank_symbol% %kingdoms_rank_name% &c%player%&8] &6%message% \n"
+  # /k 广播消息的格式。
+  # 设置为 none 表示没有声音。
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+  nation:
+    format: "\n&8[&6%kingdoms_nation%&7-&6%kingdoms_name% &lBroadcast&8]&7|&8[%kingdoms_nation_rank_color%%kingdoms_nation_rank_symbol%&7-%kingdoms_rank_color%%kingdoms_rank_symbol% %kingdoms_rank_name% &c%player%&8] &6%message%\n\n"
+    # 向所有王国成员播放的声音。
+    # 设置为 none 表示没有声音。
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+
+# https://github.com/CryptoMorin/KingdomsX/wiki/Introduction#might
+# 用于 /k top
+top-kingdoms:
+  # 用于计算王国威力的方程式。
+  # 一个王国可能决定一个王国在 /k top 中的排名
+  # 更高的可能意味着更高的等级。
+  might: "%kingdoms_resource_points% + %kingdoms_members%"
+
+  # 请注意，建议将此值保持在 30 以下
+  # 因为它会从这个列表中加载每一个王国数据。
+  amount: 10
+
+  # 在列表中显示和平主义的王国。
+  show-pacifists: false
+
+  rewards:
+    # 将其设置为 0 以禁用。
+    top: 10
+    resource-points: "10000 / %rank%"
+    bank: "1000 / %rank%"
+
+# https://github.com/CryptoMorin/KingdomsX/wiki/Introduction#might
+# 用于 /k nation top
+top-nations:
+  # 用于计算王国威力的方程式。
+  # 一个王国可能决定一个王国在 /k top 中的排名
+  # 更高的可能意味着更高的等级。
+  might: "%kingdoms_nation_resource_points% + %kingdoms_nation_kingdoms%"
+
+  # 请注意，建议将此值保持在 30 以下
+  # 因为它会从这个列表中加载每一个王国数据。
+  amount: 10
+
+  rewards:
+    # Set it to 0 to disable.
+    top: 10
+    resource-points: "10000 / %rank%"
+    bank: "1000 / %rank%"
+
+# 默认最大成员数。
+# 您可以通过在 Nexus Misc Upgrades 部分升级您的 max-members misc 升级来增加这一点。
+max-members:
+  kingdoms: 10
+  nations: 30
+
+# /k create 和 /k rename 启用管理员模式的玩家的设置将绕过以下所有检查。
+kingdom-name:
+  # 要允许重命名，您需要 Kingdoms.command.rename 权限。
+  # 使用 0 表示没有冷却时间。
+  # 此冷却时间不会在服务器重新启动之间持续存在。
+  renaming-cooldown: 1day
+
+  # 最大王国名称长度。
+  max-length: 5
+
+  # 最小王国名称长度。
+  min-length: 3
+
+  # 比较王国名称长度时忽略颜色。
+  ignore-colors: true
+
+  # 允许在国名中使用数字。 这也适用于其他语言的数字字符。
+  allow-numbers: true
+
+  # 允许王国名称有空格
+  # --- 不建议这样做 ---
+  # 这可能会导致命令选项卡完成和参数出现一些问题。 确实没有适当的解决方法。
+  # 即使命令系统被重写以支持引号，Minecraft 命令输入也可以处理多个空格。 
+  # 修复它的唯一方法是设置一个特定的字符来表示像“_”这样的空格，这会破坏目的并导致冲突。 
+  # 或者更稀有的 unicode 字符（Minecraft 支持的字符），比如 ♀ 或类似的字符。 这仍然违背了目的。  
+  allow-spaces: false
+
+  # 如果您使用其他语言，如中文或日语，您可能需要启用此功能。
+  # 允许非英文字符。 下划线、空格、数字和字母被视为英文字符。
+  allow-non-english: true
+
+  # 如果要将其设置为 true，则需要启用 allow-non-english。
+  # 如果设置为 false，这将只允许其他语言的数字和字母，而不是符号。
+  # 请注意，您不应该为国名使用颜色。 它会导致很多问题。 
+  # 例如，其他插件不能使用来自 %kingdoms_name% 占位符的王国名称，
+  # 如果它用于翻译颜色代码的地方（例如命令列表）不推荐，因为它会使使用需要王国名称的命令变得更加困难。  
+  allow-symbols: false
+
+  # 允许王国有相同的名字吗？
+  # 需要重新启动才能正常工作。
+  allow-duplicate-names: false
+
+  # 此选项使王国名称区分大小写。 这意味着如果启用了 allow-duplicate-names 并且禁用了此功能，则名为“MykiNgdoM”的王国与“mykingdom”相同，因此您无法再使用该名称创建王国。
+  # 如果您保持禁用此功能，它将对命令选项卡完成很有用，因为它接收到的输入将忽略大小写。
+  # 此选项需要重新启动才能获取旧的王国名称。
+  case-sensitive: false
+
+  # 仅当您知道 RegEx 的工作原理时才使用。 您可以使用此站点：https://regexr.com/ 如果名称与下面的任何 RegEx 匹配，则不允许使用。
+  # 出于性能原因，如果可能，建议使用列入黑名单的名称而不是这个名称。
+  # 要仅允许某种语言，请使用“[^A-z]”，其中 A 是该语言中的第一个字母，z 是该语言中的最后一个（如果可用，小写）字母。 "[^A-z]" 表达式本身表示只允许使用英文字母。
+  blacklisted-regex: [ "nigg(?:a|er)", "tit(?:s|z|ies)?", "boob(?:s|z|ies)?", "butt|ass(?:hole)?" ]
+  # 列入黑名单的名称王国列表。
+  blacklisted-names: [ cunt, motherfuck, motherfucker, whore, anus, anal, cock, dick, suck, twat, shit, labbe, faggot, clit, bitch ]
+
+# 设置 /k tag
+# 所有选项解释与“王国名称”选项相同。 请参阅上面的部分。
+tags:
+  renaming-cooldown: 1day
+
+  max-length: 16
+  min-length: 3
+  ignore-colors: true
+
+  allow-numbers: true
+  allow-spaces: false
+  allow-non-english: false
+  allow-symbols: false
+
+  blacklisted-regex: [ "nigg(?:a|er)", "tit(?:s|z|ies)?", "boob(?:s|z|ies)?", "butt|ass(?:hole)?" ]
+  blacklisted-names: [ cunt, motherfuck, motherfucker, whore, anus, anal, cock, dick, suck, twat, shit, labbe, faggot, clit, bitch ]
+
+# 设置 /k nation create 和 /k nation rename
+# 启用管理员模式的玩家将绕过以下所有检查。
+nation-name:
+  # 使用 0 表示没有冷却时间。
+  # 此冷却时间不会在服务器重新启动之间持续存在。
+  renaming-cooldown: 1day
+
+  # 最大国家名称长度。
+  max-length: 16
+
+  # 最小王国名称长度。
+  min-length: 3
+
+  # 比较国家名称长度时忽略颜色。
+  ignore-colors: true
+
+  # 允许在国家名称中使用数字。 这也适用于数字
+  # 其他语言的字符。
+  allow-numbers: true
+
+  # 允许王国名称有空格
+  # --- 不建议这样做 ---
+  # 这可能会导致命令选项卡完成和参数出现一些问题。 确实没有适当的解决方法。
+  # 即使命令系统被重写以支持引号，Minecraft 命令输入也可以处理多个空格。 
+  # 修复它的唯一方法是设置一个特定的字符来表示像“_”这样的空格，这会破坏目的并导致冲突。 
+  # 或者更稀有的 unicode 字符（Minecraft 支持的字符），比如 ♀ 或类似的字符。 这仍然违背了目的。
+  allow-spaces: false
+
+  # 如果您使用其他语言，如中文或日文，您可能需要启用此功能。
+  # 允许非英文字符。 下划线、空格、数字和字母被视为英文字符。
+  allow-non-english: false
+
+  # 如果要将其设置为 true，则需要启用 llow-non-english。
+  # 如果设置为 false，这将只允许其他语言的数字和字母，而不是符号。
+  # 不推荐，因为它会使使用需要国家名称的命令变得更加困难。
+  allow-symbols: false
+
+  # 允许国家有相同的名字？
+  # 需要重新启动才能正常工作。
+  allow-duplicate-names: false
+
+  # 此选项使王国名称区分大小写。 这意味着如果启用了 allow-duplicate-names 并且禁用了此功能，则名为“MykiNgdoM”的王国与“mykingdom”相同，因此您无法再使用该名称创建王国。
+  # 如果您保持禁用此功能，它将对命令选项卡完成很有用，因为它接收到的输入将忽略大小写。
+  # 此选项需要重新启动才能获取旧的王国名称。
+  case-sensitive: false
+
+  # 仅当您知道 RegEx 的工作原理时才使用。 您可以使用此站点：https://regexr.com/ 如果名称与下面的任何 RegEx 匹配，则不允许使用。
+  # 出于性能原因，如果可能，建议使用黑名单名称而不是这个名称。
+  blacklisted-regex: [ "nigg(?:a|er)", "tit(?:s|z|ies)?", "boob(?:s|z|ies)?", "butt|ass(?:hole)?", "^fag$" ]
+  # 列入黑名单的名称王国列表。
+  blacklisted-names: [ black, white, cunt, motherfuck, motherfucker, whore, anus, anal, cock, dick, suck, twat, shit, faggot, clit, bitch ]
+
+# 王国住宅应该默认公开吗？
+default-public-homes: false
+
+# /k fly
+kingdom-fly:
+   # 如果禁用此功能，它只会忽略对性能改进的检查。 如果您也想禁用该命令，请参阅 commands.yml 以完全禁用该命令本身。
+  enabled: true
+
+  # 受到伤害后禁用飞行。
+  disable-on-damage: true
+
+  # 如果玩家靠近敌人，则应禁用飞行。 敌人是他们的王国关系没有“停火”属性的玩家。
+  # 设置为 0 以禁用。
+  # 注意：更高的数字意味着更多的滞后。
+  # 启用了管理员模式的玩家将绕过这个。
+  # 需要重新启动才能更新。
+  nearby-unfriendly-range: 30
+
+  # 马上。 设置为 0 以禁用。 如果玩家避开飞行禁用原因，警告将结束，玩家将继续飞行。
+  warnings:
+    # 如果玩家进入无法飞行的土地，请在禁用飞行前警告玩家。
+    land: 3
+
+    # 如果玩家靠近不友好的玩家，请在禁用他们的飞行之前警告玩家。n
+    unfriendly-nearby: 5
+
+# Settings for /k lore
+# 启用管理员模式的玩家将绕过以下所有检查。
+kingdom-lore:
+  title:
+    fade-in: 10
+    stay: 20
+    fade-out: 10
+
+  # 允许知识的颜色。 这只是翻译 & 颜色代码。
+  # 它不会阻止用户使用 &，但不会翻译它。
+  allow-colors: true
+
+  # 传说的最大长度。
+  max-length: 30
+
+  # 比较王国传说长度时忽略颜色。
+  ignore-colors: true
+
+  # 每次重命名的冷却时间。
+  # 支持时间后缀。 设置为 0 以禁用。
+  # 此冷却时间不会在服务器重新启动之间持续存在。
+  renaming-cooldown: 0
+
+  # 允许非英文字符。 下划线、空格、数字和字母被视为英文字符。
+  allow-non-english: true
+
+  # 如果要将其设置为 true，则需要启用 allow-non-english。
+  # 当设置为 false 时，这将只允许其他语言数字和字母，而不是符号。
+  allow-symbols: false
+
+  # 用于删除王国传说的关键字。
+  # 只有第一个关键字将用于选项卡完成。
+  remove-keywords: [ "remove", "none", "delete", "unset", "off" ]
+
+ # 仅当您知道 RegEx 的工作原理时才使用。 您可以使用此站点：https://regexr.com/ 如果名称与下面的任何 RegEx 匹配，则不允许使用。
+  # 出于性能原因，如果可能，建议使用黑名单名称而不是这个名称。
+  blacklisted-regex: [ "nigg(?:a|er)", "tit(?:s|z|ies)?", "boob(?:s|z|ies)?", "butt|ass(?:hole)?", "^fag$" ]
+  # 王国传说中列入黑名单的名单。
+  blacklisted-names: [ black, white, cunt, motherfuck, motherfucker, whore, anus, anal, cock, dick, suck, twat, shit, labbe, faggot, clit, bitch ]
+
+# 提醒从未有过王国的人加入其中。
+# 此选项的消息条目是“no-kingdom-reminder”
+no-kingdom-reminder: false
+
+# 如果下面的设置应该向服务器中的每个人公布。
+# 更改此设置后，您可能需要考虑在元素的消息中使用 %kingdoms_name%。
+# 如果设置为 false，它只会向王国成员宣布.
+announcements:
+  # /k king
+  king: false
+  # /k rename
+  rename: false
+
+  create:
+    # /k create
+    kingdom: false
+    # /k nation create
+    nation: false
+    # For /k disband 请参阅“解散”部分。
+
+outpost-events:
+  # 如果参与活动的王国成员死亡，他们的王国将失去 rp。
+  # 设置为 0 以禁用。
+  death-resource-points-penalty: 100
+
+# /k resourcepoints <deposit/withdraw/transfer>
+# /k bank <deposit/withdraw>
+economy:
+  # 如果玩家需要在创建王国/国家之前进行确认。
+  # 这是玩家在命令结束前需要再次执行命令的时间。
+  # 设置为 0 以禁用。
+  create-confirmation: 10s
+
+  bank:
+    # 允许将钱存入王国/国家银行。
+    deposit: true
+    # 允许从王国/国家银行提款。
+    withdraw: true
+
+    # 以下设置银行的限额。
+    # 将被考虑用于 "/k bank deposit" 和税收.
+    limit:
+      kingdoms: 1000000
+      nations: 100000000
+
+  resource-points:
+    # 表示每个资源点价值 0.5 美元
+    # 因此，为了获得 2 美元，您必须存入 4 rp
+    worth: 0.5
+
+    # 可以提取的最小资源点数。
+    # 如果您的经济插件不支持十进制货币，这会有所帮助。
+    # 默认情况下，您需要提取至少 2 rp (2 * 0.5 = $1)
+    min-withdraw: 2
+
+  # 基本费用。 对于声明，请参阅 claim.yml
+  # These use the bank money, not resource points.
+  costs:
+    # 这些使用银行资金，而不是资源点。
+    create:
+      kingdom: 0
+      nation: 0
+
+    # 重命名以下设置需要多少费用？
+    rename:
+      kingdom: 100
+      nation: 1000
+
+    # 更换王国的标签需要多少钱？
+    tag:
+      kingdom: 100
+
+# 每日检查用于检查王国的不活动、处理税收以及最高的王国和国家奖励。
+# 更改以下任何选项后，您需要重新启动服务器以应用更改。
+daily-checks:
+  # 每天进行日常检查的时间。 它使用 24 小时格式并可选择支持秒。
+  # 如果服务器在此时间之后启动，则不会执行当天的每日检查，它会一直等到第二天。
+  time: '12:00'
+
+  # 时区 ID。
+  # 你可以在这里找到你的： https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # 您应该复制粘贴“TZ 数据库名称”列下的名称之一。
+  # 默认情况下，这是“本地”。 一个特殊的关键字，将自动使用您服务器的时区。
+  # 要获取当前的 UTC 时间，只需谷歌“UTC 时间”
+  # 这纯粹是为了方便，否则您可以使用正确的偏移量调整上面的时间选项以获得您想要的时间，但这也考虑了假期和所有其他例外情况。
+  # 这也用于其他事情，例如备份。
+  timezone: 'local'
+
+# 如果您禁用税收，您可能希望删除关系设置 GUI 中的选项。
+# 在每日间隔检查期间从王国和国家银行收取税款。
+# https://github.com/CryptoMorin/KingdomsX/wiki/Introduction#taxes
+tax:
+  # 在执行每日检查之前通知玩家的倒计时。
+  # 注意：这仅在启用王国或国家税收时使用。
+  # 此列表的顺序应按降序排列。
+  countdowns:
+    - 3hrs
+    - 1hr
+    - 30mins
+    - 10mins
+    - 1min
+    - 30sec
+    - 15sec
+    - 5sec
+
+  kingdoms:
+    enabled: false
+    # 用于评估税收等式的“pacifism_factor”占位符的等式。
+    # 当一个王国是和平主义者时使用它。
+    # 如果王国不是和平主义者，这将简单地等于 0
+    pacifism-factor: "(%kingdoms_members% * 100) + (%kingdoms_lands% * 50)"
+
+    # 从技术上讲，您可以通过收回所有土地并踢掉所有成员来逃税。
+    # 但没有人真的会这样做，除非他们真的很沮丧。
+    scaling: "5 * (%kingdoms_members% + 1) * (%kingdoms_lands% + 1) + pacifism_factor"
+
+    # 如果在他们的王国无法缴纳税款时应通知玩家。
+    notifications: true
+
+    # 新王国被排除在纳税之外的时间。
+    age: 3 days
+
+    # 如果王国不能纳税，就解散王国。
+    disband-if-cant-pay: true
+
+    members:
+      enabled: false
+
+      age: 3 days
+
+      # 用于为每个王国征税的默认公式。
+      # 王国可以在他们的设置中改变他们的方程式，如果他们使用一个给出错误的方程式，它会重置回这个。
+      # 可以使用所有数学运算和函数以及占位符。
+      # 这个等式基本上是说，“取玩家当前余额的 5%”
+      default-equation: "(money * 5) / 100"
+
+      # 如果王国成员不能纳税，就踢他们。
+      kick-if-cant-pay: true
+  nations:
+    enabled: false
+    scaling: "%kingdoms_nation_kingdoms% * %kingdoms_nation_kingdoms%"
+
+    # 新国家被排除在纳税之外的时间。
+    age: 3 days
+
+    # 如果国家不能纳税，就解散国家。
+    disband-if-cant-pay: true
+
+    members:
+      enabled: false
+
+      # 用于为每个王国征税的默认公式。
+      # 王国可以在他们的设置中改变他们的方程式，如果他们使用一个给出错误的方程式，它会重置回这个。
+      # 可以使用所有数学运算和函数以及占位符。
+      # 这个等式基本上是说，“拿走玩家当前余额的 15%”
+      default-equation: "(money * 15) / 100"
+
+      # 如果他们不能纳税，踢国家王国。
+      kick-if-cant-pay: true
+
+# 请注意，以下时间必须大于税“年龄”选项。
+inactivity:
+  # 如果在这段时间内没有成员登录，王国将被解散。
+  # 拥有“kingdoms.inactivity.disband”权限的国王不会影响他们的王国。
+  # 设置为 0 以禁用。
+  # 支持时间后缀。 默认为秒。
+  kingdom:
+    disband: 30 days
+    announce: true
+
+  # 如果一个成员在这段时间内没有加入，就把他们踢出阵营。
+  # 拥有“kingdoms.inactivity.kick”权限的玩家不会被踢出。
+  # 设置为 0 以禁用。
+  # 支持时间后缀。 默认为秒。
+  # 注意：这个“踢”时间选项小于王国的时间选项是没有意义的。
+  # 因为无论如何，在王国因不活动而解散之前，所有成员都会被踢掉。
+  member:
+    kick: 60 days
+    disband-kingdom-if-king: false
+    announce: true
+
+# 当一个王国或一个国家被创建时。
+creation:
+  kingdoms:
+    sound: UI_TOAST_CHALLENGE_COMPLETE
+    # 新王国准备的默认盾牌持续时间。
+    newbie-protection: 5days
+    # 创建王国时执行的命令。 您可以使用所有占位符。
+    commands: [ ]
+  nations:
+    sound: UI_TOAST_CHALLENGE_COMPLETE
+    # 新王国准备的默认盾牌持续时间。
+    newbie-protection: 0
+    # 创建国家时执行的命令。 您可以使用所有占位符。
+    commands: [ ]
+
+disband:
+  # 发送确认消息作为重新思考的第二次机会。
+  confirm: true
+  # 使用 GUI 确认
+  # 保存在 guis/disband.yml
+  use-gui: true
+  # 在此秒数后使确认失效。
+  confirmation-expiration: 10
+  # 当国王解散他们的王国时宣布。
+  announce: true
+  # 当王国因不活跃而解散时宣布。
+  announce-inactivity: true
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                        Nexus                        |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 有关更多选项，请参阅ymlstructures.yml .
+nexus:
+  # 如果可能，请在创建王国时将关联放置在当前块上。
+  place-on-create: true
+
+  # 您必须在声称的土地上设置您的联系。
+  claimed: true
+
+  # 从拥有关系的王国中获取并给予破坏关系的王国的资源点数量。
+  # 如果他们没有任何资源点，什么都不会发生。
+  break:
+    # 如果这在创造模式下也是可以接受的。
+    creative: true
+    cost: 20
+
+  # 允许盟友和停战协议点击您的关系并捐赠资源点。
+  click-donation: true
+
+  # 用于连接的块材料。
+  # 可以是任何 1.8-1.14 名称。
+  block: BEACON
+
+  # 允许成员删除王国关系。
+  # 您不能通过以下方式删除您的关联：
+  # - 打破结构
+  # - 使用 /k nexus remove
+  # - 收回土地。
+  #
+  # 如果出现以下情况，仍将删除关联：
+  # - 你解散了王国。
+  # - 使用 /k unclaimall
+  # - 连结土地被入侵。
+  allow-removal: true
+
+  # 国家关系必须设置在首都土地之一。
+  nation-capital: true
+
+  # 如果玩家在偷偷摸摸并点击一个关系，它就不会打开它。 这在放置块时很有用。
+  disable-shift-click: true
+
+  # 保留一条操作栏消息，说明已启用关联位置模式。
+  actionbar:
+    enabled: true
+    # 操作栏将一直存在，直到玩家放置连接。
+    keep: true
+
+  # 预览将始终根据下面的 replace.right-click 选项显示块。
+  preview:
+    # 启用 Nexus 的预览。
+    # 这使您可以在放置之前查看要放置的连接位置。
+    enabled: true
+    # 假块应该闪烁多快？
+    # 每秒是 20 个滴答声。
+    refresh-ticks: 10
+    # 在下次刷新之前，预览块的刻度数是不可见的。
+    # 请注意，此值应始终低于刷新刻度。
+    flick-ticks: 3
+    # 当目标块不在玩家的土地上时显示的块。
+    out-of-land-block: REDSTONE_BLOCK
+
+  # 是否应将 nexus 替换为玩家单击的块？ 如果不是，则连接将放置在选定块的一个空闲侧。
+  # 如果预览打开，这将无法按预期工作。
+  replace:
+    left-click: true
+    right-click: false
+
+    # 无法用您的关系替换的块。
+    # 可以是任何 1.8-1.14 名称。
+    # 您还可以使用格式“CONTAINS:NAME”来检查块的材质名称是否包含此名称。
+    # 例如。 “ENDERCHEST”和“TRAPPED_CHEST”的“CONTAINS:CHEST”为真
+    blocks:
+      # 如果这是一个列入黑名单的块列表，则为 true；如果这是列入白名单的块列表，则为 false。
+      blacklist: true
+      list:
+        - CONTAINS:CHEST
+        - CONTAINS:SHULKER_BOX
+        - CONTAINS:COMMAND_BLOCK
+        - CONTAINS:FURNACE
+        - CRAFTING_TABLE
+        - BEACON
+        - ANVIL
+        - BARRIER
+        - STRUCTURE_VOID
+        - STRUCTURE_BLOCK
+        - JIGSAW
+        - BEDROCK
+        - OBSIDIAN
+
+  # 禁用地点模式连接时...
+  disable-place-mode:
+    on-damage: true
+    # 如果玩家离开自己的土地。
+    # 这不是指单个区块，而是指所有土地。
+    # 请注意，这也将控制您何时可以执行 /k nexus
+    # 如果这是真的，你不能在你的土地之外做这件事。
+    out-of-land: true
+
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                     Invitations                     |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+invitations:
+  # 允许会员邀请离线玩家。
+  allow-offline-invites: true
+
+  # 如果玩家已经在一个王国中，则允许来自其他王国的邀请。
+  # 如果玩家接受，那么他将被踢出之前的王国并加入新的王国。
+  allow-from-other-kingdoms: false
+
+  # 如果玩家被邀请到多个王国，则 GUI (invite.yml) 将打开一个王国邀请列表。 否则最后一次邀请将被自动拒绝并替换为新邀请。
+  allow-multiple-invites: true
+
+  # 自动拒绝每个邀请 - 在几秒钟内。 设置为 0 以禁用（不推荐）这是用于在线邀请。
+  # 邀请玩家的人如果拥有 Kingdoms.command.invite.change.online-expiration 权限或启用此选项，则可以更改过期时间。
+  expiration:
+    # 如果被邀请的玩家离开服务器，邀请是否过期。
+    # 仅当 allow-offline-invites 为 false 时才有效。
+    expire-on-leave: false
+    default-expire: 3 min
+    offline-expire: 3 days
+    # allow-change: false
+
+  # 宣布谁邀请玩家进入王国。
+  announce: true
+
+# 对于那些真诚地发誓他们知道他们在做什么的人。
+# 如果您对此做了愚蠢的事情，我概不负责。
+iSwearIKnowWhatTheFuckIAmDoingRightNow: 0x0002E39
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                        Home                         |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# For both nation spawn and kingdom home.
+home:
+  on-join:
+    # 加入服务器时将玩家传送到王国的家而不是重生点。
+    kingdom-home: false
+
+    # 加入服务器时将玩家传送到国家的家而不是重生点。
+    # 如果启用了上面的选项，如果王国不在一个国家，它将把玩家传送到王国的家。
+    nation-spawn: false
+
+  respawn:
+    # 在王国的家中重生玩家。
+    kingdom-home: false
+
+    # 在国家重生处重生玩家。
+    # 如果启用了上面的选项，如果王国不在一个国家，它将在王国的家中重生玩家。
+    nation-spawn: false
+
+  # 如果可能，在创建王国时占领当前土地后设置王国的家园。
+  # 默认情况下，这以前是错误的。 但是从经验来看，很多新玩家并不知道 /k sethome 命令。
+  set-on-create: true
+
+  # 如果上面的选项为假，那么王国的家将在第一次声称后自动设置在玩家的位置。
+  set-on-first-claim: true
+
+  # 如果未设置王国之家，请改用 nexus 位置。
+  use-nexus-if-not-set: true
+
+  # 确定王国的家是否可以设置在无人认领的土地上，还是必须在有人认领的土地上。
+  claimed: true
+
+  # 国家重生点必须设置在首都土地之一。
+  nation-spawn-capital: true
+
+  # 王国之家只能设置在nexus土地上。
+  nexus-land: false
+
+  unset-if:
+    # 未设置的王国家园，其中有家园的土地无人认领。
+    unclaimed: true
+    # 如果有家园的土地被入侵，则解除王国家园。
+    # 被入侵的土地在技术上不是“无人认领的”
+    invaded: false
+
+  # 如果启用了安全主页，它会将主页设置在块的中心而不改变旋转。
+  # 这个选项基本上强制 /k sethome centerAxis
+  safe: false
+
+  # 用于防止玩家在几秒钟内逃离 PvP。
+  # 如果玩家受到伤害，传送将被取消。
+  # 设置为 0 以禁用。
+  teleport-delay: 3
+
+  # 如果为真，它将使用新计时器每隔一秒发送一次消息，否则它只会发送一次消息。
+  use-timer-message: true
+
+  # 如果玩家在传送回家时应该静止不动，否则取消传送。
+  should-not-move: true
+  # 如果玩家在传送回家时不应该受到伤害。
+  should-not-be-damaged: true
+
+book:
+  # 每个王国的章节限制。
+  # 如果增加此值，则还必须更改默认 GUI 以支持更多插槽。
+  # 更改此设置也不会影响任何王国的现有章节。
+  limit: 5
+
+  # 章节标题的最大长度。
+  # 这特别是 15，因为 Minecraft 中书名的最大长度是 15
+  title-max-length: 15

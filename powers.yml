@@ -1,0 +1,70 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                      Powerups                       |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+
+# name：消息中使用的名称（例如升级），此名称不用于任何 GUI。
+# cost: 每次升级所需的资源点。
+# scaling: 这取决于上电的作用。
+# max-level: 如果您降低已经将等级提升到新值以上的最高等级王国，将保留它并且不会影响它们。 不幸的是，除非您手动编辑他们的数据文件，否则您无法解决此问题。
+# own-land-only: 通电应该只在你自己的王国土地上工作。
+powerups:
+  damage-boost:
+    enabled: true
+    name: 'Damage Boost'
+    cost: "(lvl + 1) * 100"
+    scaling: "percentOf(lvl, damage)"
+    max-level: 70
+    own-land-only: true
+  damage-reduction:
+    enabled: true
+    name: 'Damage Reduction'
+    cost: "(lvl + 1) * 100"
+    scaling: "percentOf(lvl, damage)"
+    max-level: 70
+    own-land-only: true
+  arrow-boost:
+    enabled: true
+    name: 'Arrow Boost'
+    cost: "(lvl + 1) * 70"
+    scaling: "percentOf(lvl, damage)"
+    max-level: 70
+    own-land-only: true
+  regeneration-boost:
+    enabled: true
+    name: 'Regeneration Boost'
+    cost: "(lvl + 1) * 70"
+    scaling: "percentOf(lvl, amount)"
+    max-level: 100
+    own-land-only: true
+
+
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                         Power                       |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 派系式的电力系统。 此功能仍处于试验阶段，可能无法正常运行。
+# 为了更改王国的最大宣称，您需要更改 claim.yml 中的 max-claims 选项
+power:
+  enabled: false
+  player:
+    max: 10.0
+    min: -10.0
+    initial: 0.0
+
+    regeneration:
+      every: '5 min'
+      charge: 1
+
+    loss:
+      death: 4.0
+      offline:
+        every: '1 day'
+        lose: 0.5
+        min: 2.0
+  faction:
+    max: 500

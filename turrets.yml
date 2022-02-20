@@ -1,41 +1,41 @@
-#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
-#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
-#|                       Turrets                       |#
-#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
-#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#|炮塔 |#
+#|++++++++|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+#|-=-=-=-=-=-=-=-=-=-=-=-|#
 
-# Please refer to Turrets folder if you want to configure each turret.
+#如果要配置每个炮塔，请参阅炮塔文件夹。
 
-# If you don't want to use turrets, set this to false. It'll increase the performance drastically.
-# But you still need to remove the option from the nexus GUI so people can't buy any.
-# Needs a restart to work.
+#如果不想使用炮塔，请将其设置为 false。它将大大提高性能。
+#但是您仍然需要从nexus GUI中删除该选项，以便人们无法购买任何选项。
+#需要重新启动才能工作。
 enabled: true
 
-# Amount of turrets limited per land/chunk.
+#每个土地/块的炮塔数量有限。
 limit: 5
 disable-shift-click: true
 remove-unclaimed: false
 
-# If you have a world management plugin and turrets don't work after
-# restarting the server, enable this option.
+#如果你有一个世界管理插件，并且炮塔在之后不起作用
+# 重新启动服务器，启用此选项。
 ensure-loaded-chunks: false
 
-# Allow players in kingdoms to place turrets in unclaimed lands?
-# They still need to be in a kingdom to use the turrets.
+#允许王国中的玩家在无人认领的土地上放置炮塔？
+#他们仍然需要在一个王国中使用炮塔。
 allow-unclaimed: false
 
-# Should turrets go directly to the player's inventory who broke the turret.
+#炮塔应该直接进入破坏炮塔的玩家物品栏吗？
 to-inventory-on-break: false
 
-# Seconds before turrets can shoot players after they've been teleported.
-# Set to 0 to disable
+#在炮塔可以射击玩家被传送后的几秒钟前。
+#设置为 0 可禁用
 teleportation-invulnerability: 5
 
-# NOTE: BE VERY CAREFUL WHEN CHANGING THIS OPTION:
-# By changing this option you're changing how often turrets perform checks and ativate.
-# By default it is 1 ticks. Meaning every 1 second, 20 checks are performed.
-# If you change it to 2 ticks for instance, all the "time" based turret options will be affected.
-# Meaning if the turret's cooldown was "10" ticks now it's "10 * 2 = 20" ticks.
-# Every single number of this option matters up to 100 ticks for performance. After 100 ticks the performance is just not noticable anymore.
-# Requires a restart to update.
+#注意：更改此选项时要非常小心：
+#通过更改此选项，您可以更改炮塔执行检查和激活的频率。
+#默认情况下，它是 1 个刻度。这意味着每 1 秒执行 20 次检查。
+#例如，如果您将其更改为2个刻度，则所有基于"时间"的炮塔选项都将受到影响。
+#这意味着如果炮塔的冷却时间是"10"刻度，那么现在是"10 * 2 = 20"刻度。
+#此选项的每个数量都对性能影响高达 100 个价格变动。在100次滴答作响之后，表现不再引人注目。
+#需要重新启动才能更新。
 update-ticks: 1

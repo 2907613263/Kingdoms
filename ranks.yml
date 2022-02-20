@@ -1,0 +1,117 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                        Ranks                        |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+custom-ranks:
+  # 此选项需要重新启动才能工作。
+  # 此选项唯一要做的就是优化要保存的数据量。
+  # Ranks 有很多数据，它有助于 IO 操作，很多它们没有被保存。
+  # 当插件想要加载数据时，首先它会检查是否启用了该选项。
+  # 如果它被禁用，它只会从这个文件中复制默认排名然后当插件想要保存数据时，它会再次检查该选项，如果它被禁用，它不会将排名设置写入 json 文件。 您在排名设置中更改了什么并不重要。
+  # 只要您的王国没有经历缓存周期，您就可以保留它们，但之后它会回到下面的默认值。
+  enabled: true
+
+  # 等级设置的限制。
+  limits:
+    # 这不能低于 2 或高于 20（除非您更改等级 GUI 设计）
+    ranks: 20
+    max-claims: 10
+
+    # 名称的最大长度。
+    # 颜色代码也被考虑在内。
+    length:
+      ignore-colors: true
+      node: 15
+      name: 20
+      symbol: 5
+      color: 5
+      material:
+        whitelist: false
+        list: [ ]
+
+# 哪些块被认为具有 INTERACT 权限？
+# 所有其他可交互且未在此列表中指定的块将被视为 USE 权限。
+interact-blocks:
+  - CHEST
+  - TRAPPED_CHEST
+  - FURNACE
+  - BLAST_FURNACE
+  - ENCHANTING_TABLE
+  - BARREL
+  - BEACON
+  - BREWING_STAND
+  - CHEST
+  - COMPOSTER
+  - GRINDSTONE
+  - LECTERN
+  - LOOM
+  - SMOKER
+  - STONECUTTER
+  - HOPPER
+  - DROPPER
+  - DISPENSER
+  - CONTAINS:SHULKER_BOX
+  - CONTAINS:DOOR
+
+# 将现有王国权限用于可能与该特定权限不直接相关的其他目的的权限。
+permissions:
+  # 为“/k outpost join”因为资源点支付。
+  # 不要将“前哨”结构与“前哨事件”混淆
+  # 有一个单独的权限，称为“前哨”，专门用于该结构。
+  outposts: WITHDRAW
+
+  # 对于 /k invsee
+  invsee: FLY
+
+# 新创建等级的属性。
+new-rank:
+  # 如果该节点已经存在，它将以“节点（i）”格式增加“i”号，直到它不被使用。
+  node: 'node'
+  name: "name"
+  color: '&f'
+  symbol: '♟'
+  # 设置为 -1 以复制成员等级的最大声明。
+  max-claims: -1
+  # 如果此选项设置为“RANDOM”，插件将尝试选择随机颜色。
+  material: RANDOM
+  # 如果此列表的第一个元素是“@MEMBER”，它将从成员等级复制权限。
+  # 对于国家，如果使用“@MEMBER”，则此列表为空。
+  permissions: [ '@MEMBER' ]
+
+# 优先级基于此列表的顺序。
+# 第一个元素具有最高优先级。
+# 最后一个元素的优先级最低。
+ranks:
+  king:
+    color: "&c"
+    symbol: "♚"
+    name: "King"
+    material: EMERALD_BLOCK
+    # -1 表示无限制
+    max-claims: -1
+    # 国王总是拥有所有的权限。
+    permissions: [ ]
+  general:
+    color: "&6"
+    symbol: "❇"
+    name: "General"
+    material: DIAMOND_BLOCK
+    max-claims: -1
+    permissions: [ NEXUS, BUILD, HOME, INVADE, NEXUS_CHEST, NEXUS_BUILD, UNCLAIM, CLAIM, TURRETS, INVITE, KICK, LORE, BROADCAST,
+                   STRUCTURES, SET_HOME, ALLIANCE, TRUCE, ENEMY, MANAGE_RANKS, FLY, WITHDRAW, INTERACT, USE, OUTPOST, NATION, UPGRADE ]
+  knight:
+    name: "Knight"
+    color: "&e"
+    symbol: "♜"
+    material: GOLD_BLOCK
+    max-claims: 10
+    permissions: [ NEXUS, BUILD, HOME, INVADE, NEXUS_CHEST, NEXUS_BUILD, UNCLAIM, CLAIM, TURRETS, INVITE, WITHDRAW, FLY, INTERACT, USE ]
+  member:
+    name: "Member"
+    color: "&2"
+    symbol: "♟"
+    material: IRON_BLOCK
+    max-claims: 0
+    permissions: [ NEXUS, BUILD, HOME, INVADE, INTERACT, USE ]

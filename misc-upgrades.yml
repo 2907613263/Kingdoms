@@ -1,0 +1,166 @@
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|                   Misc Upgrades                     |#
+#|++++++++++++++++++++++++++++++++++++++++++++++++++++|#
+#|-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-|#
+
+# 如果您不希望人们升级它们，您仍然需要将它们从 GUI 中删除（guis -> structures -> nexus -> misc-upgrades）。
+invasion-teleportation:
+  enabled: true
+  name: 'Invasion Teleportation'
+  # 这个数量是从invasions.yml -> teleportation -> teleport-delay 中减少的
+  scaling: lvl
+  cost: "(lvl + 1) * 10"
+  max-level: 5
+anti-explosion:
+  enabled: true
+  name: 'Anti-Explosion'
+  cost: "(lvl + 1) * 100"
+  max-level: 3
+
+  # 它会将块抛向空中！
+  fancy-explosions:
+    enabled: true
+
+    # 由于性能问题，以下选项需要重新启动服务器。
+    height:
+      min: 0.2
+      max: 1.0
+    spread:
+      min: -1.0
+      max: 1.0
+
+  # 自动缓慢地重新生成块。
+  # 此选项有其自身的局限性。
+  auto-regenerate:
+    # 需要重新启动才能应用。
+    enabled: true
+    # 开始再生之前的延迟（以秒为单位）。
+    delay: 2
+    # 每个方块再生之间的间隔（以滴答为单位）。
+    interval: 1
+anti-trample:
+  enabled: true
+  name: 'Anti-Trample'
+  cost: "(lvl + 1) * 100"
+  max-level: 2
+nexus-guards:
+  enabled: true
+  name: 'Nexus Guards'
+  cost: "(lvl + 1) * 100"
+  max-level: 4
+  # 生成延迟以秒为单位。
+  spawn-delay: 5
+  levels:
+    1:
+      zombies:
+        amount: 2
+        type: ZOMBIE
+        name: "&cNexus Guard"
+        health: 50
+      skeletons:
+        amount: 1
+        type: SKELETON
+        name: "&6Nexus Guard"
+        health: 20
+    2:
+      zombies:
+        amount: 3
+        type: ZOMBIE
+        name: "&cNexus Guard"
+        health: 50
+      skeletons:
+        amount: 3
+        type: SKELETON
+        name: "&6Nexus Guard"
+        health: 20
+    3:
+      illusioners:
+        amount: 1
+        type: ILLUSIONER
+        name: "&cNexus Wizard"
+        health: 50
+      vindicators:
+        amount: 3
+        type: VINDICATOR
+        name: "&6Nexus Butler"
+        health: 20
+    4:
+      illusioners:
+        amount: 1
+        type: ILLUSIONER
+        name: "&cNexus Wizard"
+        health: 50
+      vindicators:
+        amount: 2
+        type: VINDICATOR
+        name: "&6Nexus Butler"
+        health: 20
+      vexes:
+        amount: 5
+        type: VEX
+        name: "&6Nexus Minions"
+        health: 20
+guards:
+  enabled: true
+  name: 'Guards'
+  cost: "(lvl + 1) * 100"
+  max-level: 2
+  # 生成延迟以秒为单位。
+  spawn-delay: 5
+  levels:
+    1:
+      zombies:
+        amount: 3
+        type: ZOMBIE
+        name: "&6Guard"
+        health: 50
+      skeletons:
+        amount: 1
+        type: SKELETON
+        name: "&6Guard"
+        health: 20
+    2:
+      zombies:
+        amount: 3
+        type: ZOMBIE
+        name: "&6Guard"
+        health: 50
+      skeletons:
+        amount: 1
+        type: SKELETON
+        name: "&6Guard"
+        health: 20
+insanity:
+  enabled: true
+  name: 'Insanity'
+  cost: "(lvl + 1) * 100"
+  max-level: 1
+glory:
+  enabled: true
+  name: 'Glory'
+  cost: "(lvl + 1) * 100"
+  # 目前不使用此功能。
+  scaling: "xp * lvl"
+  max-level: 2
+chest-size:
+  enabled: true
+  name: 'Chest Size'
+  scaling: lvl
+  cost: "(lvl + 1) * 100"
+  # 您不能将其更改为更高的数字，否则会出现大量意外错误。
+  max-level: 5
+# 此升级没有缩放。 在claims.yml 中的max-claims 方程中使用了级别号
+max-claims:
+  enabled: true
+  name: 'Max Claims'
+  scaling: 'lvl * 2'
+  cost: "(lvl + 1) * 200"
+  max-level: 10
+max-members:
+  enabled: true
+  name: 'Max Members'
+  cost: "(lvl + 1) * 100"
+  # 每次升级。
+  scaling: 'lvl * 5'
+  max-level: 10

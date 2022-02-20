@@ -1,18 +1,18 @@
-# For economy related settings refer to config.yml
+#有关经济相关的设置，请参阅 config.yml
 
-# How should the %kingdoms_last_donation_time/amount% be parsed?
-# This will gather the amount of rp player has collected since his last
-# "donation time" If the donation time reaches this duration, it'll update if the
-# player tries to donate again.
+#应如何解析 %kingdoms_last_donation_time/金额%？
+#这将收集自上次以来收集的rp玩家的数量
+#"捐赠时间"如果捐赠时间达到此持续时间，则在
+#玩家尝试再次捐赠。
 last-donation-duration: 1 day
 
-# Kingdom resource points lost when a member dies in any way.
-# If the kingdom cannot afford this, simply nothing will happen.
+#当成员以任何方式死亡时，王国资源点数会丢失。
+#如果王国负担不起，根本就不会发生任何事情。
 death-penalty: 10
 
-# Format: for each, give amount
-# For each 5 items that are in NOT in the list, give 1 resource point.
-# Resource points are not doubles/decimals (rational numbers) they're integers.
+#格式：对于每个，给予金额
+#对于列表中未列出的每 5 个项目，请提供 1 个资源点。
+#资源点不是双精度/小数（有理数），它们是整数。
 for-each: 5
 give: 1
 blacklist: true
@@ -20,7 +20,7 @@ list:
   - STICK
   - STRING
 
-# Resource points given per item. (for-each is not used here)
+#每个项目给出的资源点数。（此处未使用每个）
 custom:
   IRON_INGOT: 30
   GOLD_INGOT: 40
@@ -38,29 +38,29 @@ custom:
   COAL_BLOCK: 18
   REDSTONE_BLOCK: 9
 
-# Advanced settings to detect custom items worth.
-# name: The full name of the item with colors.
-# lore: The full line of the item with colors.
-#       Notice that using plain text for this option compares it to each *line* not the whole lore.
-# These two options above must be an exact match, otherwise you can use
-# the special keyword "CONTAINS:" or "REGEX:" at the beginning.
-# CONTAINS: Checks if the given text is present in the field and it is case-sensitive.
-# REGEX: Regular Expression
-# E.g. The following accepts items with names "legendary sword" and "Lvl.3 legendary axe",
-# but not "Legendary sword" or "legend axe"
-# item:
-#   name: "CONTAINS:legendary"
+#高级设置，用于检测自定义项目的价值。
+# 名称：带有颜色的项目的全名。
+#传说：带有颜色的项目的完整行。
+#请注意，对此选项使用纯文本会将其与每个 *行* 进行比较，而不是整个知识。
+#上面的两个选项必须完全匹配，否则您可以使用
+# 开头的特殊关键字"CONTAINS："或"REGEX："。
+#CONTAINS：检查字段中是否存在给定文本，并且该文本区分大小写。
+#正则表达式：正则表达式
+#例如，以下接受名为"传奇剑"和"Lvl.3传奇斧头"的物品，
+# 但不是"传奇剑"或"传奇斧头"
+# 项：
+# 名称：" CONTAINS：传奇"
 
-# material: The full name of the item's material.
-# custom-model: The 1.14 custom model data of the item.
+# 材料：项目材料的全名。
+# 自定义模型：项目的1.14自定义模型数据。
 
-# enchants: A list of enchantments that the item should have.
-# Additional enchantments on the item that are not in this list are ignored.
+#附魔：物品应该具有的附魔列表。
+#项目上不在此列表中的其他附魔将被忽略。
 
-# nbt: This checks if the item has some kind of NBT data with the specified value.
-# You shouldn't bother with this option if you don't know what NBT datas your custom item plugins use.
-# Most of them don't use them at all.
-# This also has performance penalties, so use them sparingly.
+# nbt：这会检查项目是否具有具有指定值的某种 NBT 数据。
+#如果您不知道自定义项插件使用哪些NBT数据，则不应打扰此选项。
+#他们中的大多数根本不使用它们。
+#这也会降低性能，因此请谨慎使用它们。
 advanced:
   special-gravel:
     name: "CONTAINS:Dorito"
@@ -71,21 +71,21 @@ advanced:
     lore: "CONTAINS:cor lapis"
     material: GOLD_BLOCK
     resource-points: 1000
-    # advanced-nbt-stuff:
-    # material: NETHER_STAR
-    # nbt:
-    # The built-in "ResourcePoints" kingdoms NBT Allows developers to add custom worht
-    # to resource points without adding them here. This is just here for demonstration purposes.
-    # The dot indicates a NBT compound. Kinda like config entries in yml.
-    #  "Kingdoms.ResourcePoints": ""
-    # Bukkit's format for the normal API...
-    #  "pluginname:nbtname": "golden"
+    # advanced-nbt-stuff：
+    # 材质： NETHER_STAR
+    # nbt：
+    #内置的"资源点"王国NBT允许开发人员添加自定义功能
+    # 到资源点，而不在此处添加它们。这仅用于演示目的。
+    #该点表示NBT化合物。有点像yml中的配置条目。
+    #"Kingdoms.ResourcePoints"： ""
+    #Bukkit的格式为正常的API...
+    #"pluginname：nbtname"： "golden"
 
-# Custom items that can be obtained using the command: /k item give <name> [amount] [player]
-# Similarily, you can hold an item and do "/k item inject <rp>" to put rp into an item.
+#可以使用以下命令获得的自定义项目：/k 项目<名称> [数量] [播放器]
+#同样，您可以按住一个项目并执行"/k项目注入<rp>"以将rp放入项目中。
 custom-items:
-  # E.g. /k item give crystal 10 Hex_27
-  # Which gives the player Hex_27 10 crystal items.
+  #例如/k项给水晶10 Hex_27
+  #这给了玩家Hex_27 10个水晶物品。
   crystal:
     name: "&3Crystal"
     material: DIAMOND
