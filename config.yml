@@ -76,7 +76,7 @@ updates:
 # 如果您翻译了插件，您可以联系我，我会将其添加到插件中。
 # 可用语言：
 # en (English), hu (Hungarian), ru (Russian), es (Spanish), de (German), pl (Polish)
-lang: en
+lang: zh-CN
 
 # Backups plugin's data. Most of the options require a restart to be changed.
 backups:
